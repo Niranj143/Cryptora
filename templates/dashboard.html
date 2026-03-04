@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cryptora Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #0D0D0D, #F4A460);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: white;
+}
+
+/* Animated Gradient */
+@keyframes gradientMove {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+}
+
+/* Glass Navbar */
+.navbar {
+    background: rgba(0,0,0,0.5) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Floating Particles */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cubes.png');
+    opacity: 0.05;
+    animation: moveBg 20s linear infinite;
+}
+@keyframes moveBg {
+    from {background-position:0 0;}
+    to {background-position:500px 500px;}
+}
+
+/* Cards */
+.card {
+    background: rgba(245,245,245,0.08);
+    border: none;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    color: white;
+    transition: all 0.4s ease;
+    animation: fadeUp 1s ease forwards;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Fade Animation */
+@keyframes fadeUp {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+/* Neon Buttons */
+/* Premium Cyber Buttons */
+.btn-primary {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Lift */
+.btn-primary:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 10px 20px rgba(0, 242, 254, 0.4);
+}
+
+/* Moving Light Effect */
+.btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+    transform: skewX(-25deg);
+    transition: 0.6s;
+}
+
+.btn-primary:hover::before {
+    left: 130%;
+}
+
+/* Title Animation */
+h2 {
+    animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+    from {text-shadow:0 0 10px #00c6ff;}
+    to {text-shadow:0 0 20px #0072ff;}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar px-5">
+    <span class="navbar-brand text-white fs-4">🛡️ Cryptora Dashboard</span>
+    <span>Welcome, {{ username }} | <a href="/logout" class="text-warning text-decoration-none">Logout</a></span>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="mb-4">🚀 Start Your Learning Journey</h2>
+
+    <div class="row g-4">
+
+        {% for title, text, link in [
+        ('📘 Networking Basics','Understand internet, IPs & firewalls','/learn/networking'),
+        ('📘 Encryption & Cryptography','Learn encryption and hashing','/learn/encryption'),
+        ('📘 Ethical Hacking','Learn penetration testing',url_for('ethical')),
+        ('📘 Cyber Security Concepts','Understand cyber attacks',url_for('cybersecurity')),
+        ('📘 Linux & Kali Linux','Explore Linux tools',url_for('linux')),
+        ('📘 OS & Security','Operating system security',url_for('os_security'))
+        ] %}
+
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h5>{{ title }}</h5>
+                <p>{{ text }}</p>
+                <a href="{{ link }}" class="btn btn-primary">Start Learning</a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h5>🚀 CyberHub Learning Portal</h5>
+                <p>Structured cybersecurity 
+                roadmap.</p>
+                <a href="{{ url_for('cyberhub_home') }}" class="btn btn-primary">Open CyberHub</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h5>Assessment & Quiz</h5>
+                <p>Test yor cybersecurity knowledge.</p>
+                <a href="/assessment/" class="btn btn-primary">Take Assessment</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5 text-center">
+        <a href="{{ url_for('questions /.,') }}" class="btn btn-primary">📊 Questions & Answers</a>
+    </div>
+</div>
+<br>
+<br>
+
+</body>
+</html>

@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cryptora Q&A</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f9; }
+    h1 { text-align: center; color: #2c3e50; }
+    h2 { color: #34495e; margin-top: 30px; }
+    .question {
+      background: #ecf0f1;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .answer {
+      display: none;
+      padding: 10px;
+      margin-top: 5px;
+      background: #dff9fb;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Cryptora Q&A</h1>
+
+
+<div class="question" onclick="toggleAnswer(this)">Q1. What is Cryptography?
+  <div class="answer">Cryptography is the practice of securing information by converting it into unreadable text.<br>
+  <b>Example:</b> Caesar Cipher shifting A→D.<br>
+  <b>Scenario:</b> Used in online banking to protect transactions.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q2. Difference between Encryption and Decryption?
+  <div class="answer">Encryption converts plaintext to ciphertext; decryption converts it back.<br>
+  <b>Example:</b> "HELLO" → "KHOOR" → back to "HELLO".<br>
+  <b>Scenario:</b> WhatsApp chat messages are end-to-end encrypted.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q3. What is Symmetric Key Cryptography?
+  <div class="answer">Same key is used for encryption and decryption.<br>
+  <b>Example:</b> AES (Advanced Encryption Standard).<br>
+  <b>Scenario:</b> Encrypting a company’s internal files shared among trusted employees.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q4. What is Asymmetric Key Cryptography?
+  <div class="answer">Uses two keys – a public key for encryption and a private key for decryption.<br>
+  <b>Example:</b> RSA algorithm.<br>
+  <b>Scenario:</b> Secure email communication with public/private keys.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q5. What is a Cipher?
+  <div class="answer">A cipher is an algorithm used for encryption and decryption.<br>
+  <b>Example:</b> Caesar Cipher, Vigenère Cipher.<br>
+  <b>Scenario:</b> Substitution ciphers used in puzzle games.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q6. What is Plaintext and Ciphertext?
+  <div class="answer">Plaintext is the original readable message; ciphertext is the encrypted unreadable text.<br>
+  <b>Example:</b> "HELLO" (plaintext) → "KHOOR" (ciphertext).<br>
+  <b>Scenario:</b> Passwords stored in databases as ciphertext.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q7. What is a Key in Cryptography?
+  <div class="answer">A key is a piece of information that determines the output of a cryptographic algorithm.<br>
+  <b>Example:</b> AES-256 uses a 256-bit key.<br>
+  <b>Scenario:</b> Banking apps generate session keys for secure communication.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q8. What is Hashing?
+  <div class="answer">Hashing is a one-way function that converts input data into a fixed-size output.<br>
+  <b>Example:</b> SHA-256 hashing.<br>
+  <b>Scenario:</b> Passwords stored as hashes instead of plain text.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q9. Difference between Hashing and Encryption?
+  <div class="answer">Encryption is reversible (with key); hashing is irreversible.<br>
+  <b>Example:</b> AES vs SHA-256.<br>
+  <b>Scenario:</b> Encryption for chats, hashing for password storage.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q10. What is Digital Signature?
+  <div class="answer">A digital signature ensures authenticity and integrity of data.<br>
+  <b>Example:</b> Signed PDF documents.<br>
+  <b>Scenario:</b> Verifying software updates are from a trusted vendor.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q11. What is SSL/TLS?
+  <div class="answer">Protocols that secure communication over the internet.<br>
+  <b>Example:</b> HTTPS websites use SSL/TLS.<br>
+  <b>Scenario:</b> Online shopping transactions are protected with TLS.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q12. What is End-to-End Encryption?
+  <div class="answer">Only sender and receiver can read the message, no one in between.<br>
+  <b>Example:</b> WhatsApp chats.<br>
+  <b>Scenario:</b> Private messaging apps use E2E encryption.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q13. What is Steganography?
+  <div class="answer">Hiding information inside other files like images or audio.<br>
+  <b>Example:</b> Hiding text inside an image.<br>
+  <b>Scenario:</b> Used in covert communication.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q14. What is a Man-in-the-Middle Attack?
+  <div class="answer">An attacker intercepts communication between two parties.<br>
+  <b>Example:</b> Fake Wi-Fi hotspot.<br>
+  <b>Scenario:</b> Hackers intercept login credentials on public Wi-Fi.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q15. What is a Brute Force Attack?
+  <div class="answer">Trying all possible keys/passwords until the correct one is found.<br>
+  <b>Example:</b> Cracking a 4-digit PIN.<br>
+  <b>Scenario:</b> Hackers brute-forcing weak passwords.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q16. What is a Dictionary Attack?
+  <div class="answer">Using a list of common passwords to guess the correct one.<br>
+  <b>Example:</b> Trying "123456" or "password".<br>
+  <b>Scenario:</b> Attackers crack accounts using leaked password databases.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q17. What is a Salt in Hashing?
+  <div class="answer">Random data added before hashing to make hashes unique.<br>
+  <b>Example:</b> Hash(password+salt).<br>
+  <b>Scenario:</b> Prevents rainbow table attacks on stored passwords.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q18. What is Public Key Infrastructure (PKI)?
+  <div class="answer">A system for managing digital certificates and keys.<br>
+  <b>Example:</b> SSL certificates.<br>
+  <b>Scenario:</b> Websites use PKI for HTTPS authentication.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q19. What is RSA?
+  <div class="answer">An asymmetric cryptographic algorithm based on prime factorization.<br>
+  <b>Example:</b> Encrypting with public key, decrypting with private key.<br>
+  <b>Scenario:</b> Used in digital certificates and secure email.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q20. What is AES?
+  <div class="answer">Advanced Encryption Standard, a symmetric cipher widely used.<br>
+  <b>Example:</b> AES-256 encryption.<br>
+  <b>Scenario:</b> Encrypting sensitive government data.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q21. What is Diffie-Hellman Key Exchange?
+  <div class="answer">A method to securely exchange keys over an insecure channel.<br>
+  <b>Example:</b> Alice and Bob agree on a shared secret.<br>
+  <b>Scenario:</b> Used in VPN connections.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q22. What is Elliptic Curve Cryptography (ECC)?
+  <div class="answer">A cryptographic approach using elliptic curves for efficiency.<br>
+  <b>Example:</b> Curve25519.<br>
+  <b>Scenario:</b> Mobile devices use ECC for faster encryption.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q23. What is a Block Cipher?
+  <div class="answer">Encrypts data in fixed-size blocks.<br>
+  <b>Example:</b> AES (128-bit blocks).<br>
+  <b>Scenario:</b> Used for file encryption.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q24. What is a Stream Cipher?
+  <div class="answer">Encrypts data one bit/byte at a time.<br>
+  <b>Example:</b> RC4.<br>
+  <b>Scenario:</b> Used in real-time communication like video streams.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q25. What is a One-Time Pad?
+  <div class="answer">An encryption method using a random key the same length as the message.<br>
+  <b>Example:</b> XOR operation with random key.<br>
+  <b>Scenario:</b> Used in top-secret government communications.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q26. What is Kerberos?
+  <div class="answer">A network authentication protocol using tickets.<br>
+  <b>Example:</b> MIT Kerberos.<br>
+  <b>Scenario:</b> Enterprise single sign-on systems.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q27. What is Multi-Factor Authentication (MFA)?
+  <div class="answer">Using two or more authentication methods for security.<br>
+  <b>Example:</b> Password + OTP.<br>
+  <b>Scenario:</b> Online banking login with SMS OTP.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q28. What is OAuth?
+  <div class="answer">An authorization framework for secure access delegation.<br>
+  <b>Example:</b> Login with Google.<br>
+  <b>Scenario:</b> Third-party apps accessing your account securely.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q29. What is a Certificate Authority (CA)?
+  <div class="answer">An entity that issues digital certificates.<br>
+  <b>Example:</b> DigiCert, Let's Encrypt.<br>
+  <b>Scenario:</b> Websites obtain SSL certificates from a CA.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q30. What is Cryptanalysis?
+  <div class="answer">The study of breaking cryptographic systems.<br>
+  <b>Example:</b> Differential cryptanalysis.<br>
+  <b>Scenario:</b> Hackers attempting to crack old ciphers.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q31. What is Forward Secrecy?
+  <div class="answer">Ensures session keys are not compromised even if private key is.<br>
+  <b>Example:</b> TLS with ephemeral keys.<br>
+  <b>Scenario:</b> Protects past communication if future keys are leaked.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q32. What is Homomorphic Encryption?
+  <div class="answer">Allows computation on encrypted data without decryption.<br>
+  <b>Example:</b> Adding encrypted numbers.<br>
+  <b>Scenario:</b> Secure cloud computing with sensitive data.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q33. What is Zero-Knowledge Proof?
+  <div class="answer">A method to prove knowledge without revealing the actual information.<br>
+  <b>Example:</b> Proving you know a password without showing it.<br>
+  <b>Scenario:</b> Privacy-preserving authentication systems.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q34. What is Quantum Cryptography?
+  <div class="answer">Uses quantum mechanics for secure communication.<br>
+  <b>Example:</b> Quantum key distribution (QKD).<br>
+  <b>Scenario:</b> Future-proof security against quantum computers.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q35. Why is Cryptography Important in Cybersecurity?
+  <div class="answer">It ensures confidentiality, integrity, and authentication of data.<br>
+  <b>Example:</b> Protecting credit card details online.<br>
+  <b>Scenario:</b> Preventing hackers from stealing sensitive business data.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q36. What is Modular Arithmetic?
+  <div class="answer">It’s arithmetic where numbers wrap around after reaching a certain value (modulus).<br>
+  <b>Example:</b> 17 mod 5 = 2.<br>
+  <b>Scenario:</b> RSA encryption uses modular exponentiation.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q37. What is Euclid's Algorithm?
+  <div class="answer">A method for finding the greatest common divisor (GCD) of two numbers.<br>
+  <b>Example:</b> GCD(48,18)=6.<br>
+  <b>Scenario:</b> Used in key generation for public-key cryptography.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q38. What is Fermat’s Little Theorem?
+  <div class="answer">If p is prime and a is not divisible by p, then a^(p−1) ≡ 1 (mod p).<br>
+  <b>Example:</b> For p=5, a=2 → 2⁴ mod 5 = 1.<br>
+  <b>Scenario:</b> Used in primality testing for cryptographic keys.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q39. What is Chinese Remainder Theorem?
+  <div class="answer">It provides a unique solution to simultaneous congruences with coprime moduli.<br>
+  <b>Example:</b> x ≡ 2 (mod 3), x ≡ 3 (mod 5) → x = 8.<br>
+  <b>Scenario:</b> Used in RSA decryption optimization.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q40. What is Modular Exponentiation?
+  <div class="answer">Fast computation of (a^b) mod n without computing a^b fully.<br>
+  <b>Example:</b> 3^200 mod 13.<br>
+  <b>Scenario:</b> Used in RSA encryption/decryption.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q41. What is Prime Factorization?
+  <div class="answer">Breaking a number into product of prime numbers.<br>
+  <b>Example:</b> 60 = 2² × 3 × 5.<br>
+  <b>Scenario:</b> RSA security relies on difficulty of factoring large numbers.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q42. What is Miller-Rabin Test?
+  <div class="answer">A probabilistic algorithm to test if a number is prime.<br>
+  <b>Example:</b> Checking if 137 is prime.<br>
+  <b>Scenario:</b> Used in generating cryptographic prime numbers.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q43. What is Extended Euclidean Algorithm?
+  <div class="answer">It finds GCD and also coefficients (x,y) such that ax+by=GCD(a,b).<br>
+  <b>Example:</b> For a=30, b=20 → GCD=10 with coefficients.<br>
+  <b>Scenario:</b> Used in RSA for finding modular inverses.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q44. What is a Modular Inverse?
+  <div class="answer">Given a and n, modular inverse of a is number x such that (a·x) mod n = 1.<br>
+  <b>Example:</b> 3 inverse mod 11 is 4 (3×4=12 ≡1 mod 11).<br>
+  <b>Scenario:</b> Used in RSA private key calculation.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q45. What is the Discrete Logarithm Problem?
+  <div class="answer">Given a^x mod p = y, find x. Hard problem.<br>
+  <b>Example:</b> 2^x mod 11 = 9 → x=6.<br>
+  <b>Scenario:</b> Security basis of Diffie-Hellman and ElGamal.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q46. What is Diffie-Hellman Algorithm?
+  <div class="answer">A key exchange protocol allowing two parties to generate a shared key.<br>
+  <b>Example:</b> Alice and Bob agree on public prime, then exchange values.<br>
+  <b>Scenario:</b> Used in SSL/TLS protocols.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q47. What is RSA Algorithm?
+  <div class="answer">A public-key cryptosystem based on prime factorization difficulty.<br>
+  <b>Example:</b> Choose primes, calculate n, e, d.<br>
+  <b>Scenario:</b> Digital signatures, secure email, SSL certificates.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q48. What is ElGamal Encryption?
+  <div class="answer">An asymmetric encryption algorithm based on discrete logarithms.<br>
+  <b>Example:</b> Encrypting messages using group theory.<br>
+  <b>Scenario:</b> Used in PGP encryption systems.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q49. What is Hash Function in Number Theory?
+  <div class="answer">A one-way function mapping input to fixed-size output.<br>
+  <b>Example:</b> SHA-256("hello") = hash.<br>
+  <b>Scenario:</b> Used for digital signatures and blockchain.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q50. What is Pollard’s Rho Algorithm?
+  <div class="answer">An algorithm for integer factorization.<br>
+  <b>Example:</b> Factorizing 8051 quickly.<br>
+  <b>Scenario:</b> Used in attacking RSA with small keys.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q51. What is LCM in Cryptography?
+  <div class="answer">Least common multiple used in RSA key generation.<br>
+  <b>Example:</b> lcm(15,20)=60.<br>
+  <b>Scenario:</b> Computing RSA λ(n).</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q52. What is Primitive Root?
+  <div class="answer">An integer g is primitive root modulo n if powers of g generate all residues mod n.<br>
+  <b>Example:</b> g=2 is primitive root mod 5.<br>
+  <b>Scenario:</b> Used in Diffie-Hellman key exchange.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q53. What is Euler’s Totient Function?
+  <div class="answer">φ(n) = number of integers ≤ n that are coprime with n.<br>
+  <b>Example:</b> φ(9)=6.<br>
+  <b>Scenario:</b> Used in RSA key calculation.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q54. What is Square and Multiply Algorithm?
+  <div class="answer">Efficient method for modular exponentiation.<br>
+  <b>Example:</b> 7^13 mod 23.<br>
+  <b>Scenario:</b> Used in fast RSA encryption.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q55. What is Random Number Generation?
+  <div class="answer">Generating unpredictable numbers.<br>
+  <b>Example:</b> 128-bit random key.<br>
+  <b>Scenario:</b> Used in session keys, nonces.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q56. What is Blum Integer?
+  <div class="answer">A number n=pq where p and q are primes ≡3 mod 4.<br>
+  <b>Example:</b> n=7×11=77.<br>
+  <b>Scenario:</b> Used in cryptographic pseudorandom generators.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q57. What is Karatsuba Algorithm?
+  <div class="answer">Fast multiplication algorithm for large integers.<br>
+  <b>Example:</b> Multiplying 1234×5678.<br>
+  <b>Scenario:</b> Used in big integer libraries for cryptography.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q58. What is Montgomery Reduction?
+  <div class="answer">A method for efficient modular multiplication.<br>
+  <b>Example:</b> Fast RSA implementation.<br>
+  <b>Scenario:</b> Optimizing cryptographic computations.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q59. What is Primality Testing?
+  <div class="answer">Checking if a number is prime.<br>
+  <b>Example:</b> AKS primality test.<br>
+  <b>Scenario:</b> Used for generating secure cryptographic keys.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q60. What is Secure Hash Algorithm (SHA)?
+  <div class="answer">Family of cryptographic hash functions.<br>
+  <b>Example:</b> SHA-256 used in Bitcoin.<br>
+  <b>Scenario:</b> Ensuring integrity of digital files.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q61. What is Baby-step Giant-step Algorithm?
+  <div class="answer">An algorithm to solve discrete log problem.<br>
+  <b>Example:</b> Solving g^x mod p = y.<br>
+  <b>Scenario:</b> Used in cryptanalysis.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q62. What is Lenstra Elliptic Curve Factorization?
+  <div class="answer">A factorization method using elliptic curves.<br>
+  <b>Example:</b> Factoring semi-primes.<br>
+  <b>Scenario:</b> Used in advanced attacks on weak keys.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q63. What is Binary GCD Algorithm?
+  <div class="answer">Efficient way of computing GCD using binary operations.<br>
+  <b>Example:</b> GCD(48,18).<br>
+  <b>Scenario:</b> Used in cryptographic libraries.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q64. What is Modular Reduction?
+  <div class="answer">Reducing large numbers modulo n.<br>
+  <b>Example:</b> 123456 mod 7.<br>
+  <b>Scenario:</b> Used in RSA, ECC computations.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q65. What is CRT in RSA?
+  <div class="answer">Chinese Remainder Theorem applied to speed up RSA decryption.<br>
+  <b>Example:</b> Splitting computations mod p and q.<br>
+  <b>Scenario:</b> Optimized SSL servers use this.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q66. What is a Pseudorandom Function (PRF)?
+  <div class="answer">A deterministic function that is indistinguishable from random.<br>
+  <b>Example:</b> HMAC.<br>
+  <b>Scenario:</b> Used in key derivation functions.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q67. What is Pollard’s p-1 Algorithm?
+  <div class="answer">Factorization algorithm efficient when p-1 has small factors.<br>
+  <b>Example:</b> Factoring numbers like 91.<br>
+  <b>Scenario:</b> Cryptanalysis of weak RSA keys.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q68. What is Quadratic Sieve?
+  <div class="answer">One of the fastest factorization algorithms for medium-sized numbers.<br>
+  <b>Example:</b> Factoring 100-digit number.<br>
+  <b>Scenario:</b> Cryptanalysis research.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q69. What is Elliptic Curve Cryptography (ECC)?
+  <div class="answer">Public-key cryptography based on elliptic curves over finite fields.<br>
+  <b>Example:</b> ECDSA signatures.<br>
+  <b>Scenario:</b> Used in Bitcoin, modern TLS protocols.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q70. What is Lattice-based Cryptography?
+  <div class="answer">Cryptography based on hardness of lattice problems.<br>
+  <b>Example:</b> Learning With Errors (LWE).<br>
+  <b>Scenario:</b> Considered secure against quantum computers.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q71. What is network security?
+  <div class="answer">Network security involves protecting data during transfer across networks from attacks, misuse, or unauthorized access.<br><b>Example:</b> Using SSL/TLS for secure communication.<br><b>Scenario:</b> Online banking portals using HTTPS to protect transactions.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q72. What is a firewall?
+  <div class="answer">A firewall is a security system that monitors and controls incoming and outgoing network traffic.<br><b>Example:</b> Windows Defender Firewall.<br><b>Scenario:</b> A company blocks access to malicious websites using firewall rules.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q73. What is an Intrusion Detection System (IDS)?
+  <div class="answer">IDS monitors network traffic for suspicious activity and alerts administrators.<br><b>Example:</b> Snort IDS.<br><b>Scenario:</b> Detecting repeated failed login attempts indicating brute-force.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q74. Difference between IDS and IPS?
+  <div class="answer">IDS only detects and alerts, while IPS actively blocks malicious activities.<br><b>Example:</b> IDS logs brute force, IPS blocks the attacker’s IP.<br><b>Scenario:</b> Cloud providers use IPS to block DDoS traffic.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q75. What is a VPN?
+  <div class="answer">A Virtual Private Network (VPN) encrypts internet traffic and hides your IP for secure communication.<br><b>Example:</b> NordVPN, ProtonVPN.<br><b>Scenario:</b> Employees use VPN to access company servers remotely.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q76. What is HTTPS?
+  <div class="answer">HTTPS (Hypertext Transfer Protocol Secure) uses SSL/TLS encryption for secure communication.<br><b>Example:</b> https://gmail.com<br><b>Scenario:</b> E-commerce websites use HTTPS to secure payments.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q77. What is a DDoS attack?
+  <div class="answer">A Distributed Denial of Service attack overwhelms a server with traffic, making it unavailable.<br><b>Example:</b> Botnets flooding a server.<br><b>Scenario:</b> E-commerce sites targeted during Black Friday.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q78. How to prevent DDoS attacks?
+  <div class="answer">Use firewalls, rate limiting, intrusion prevention, and cloud DDoS protection.<br><b>Example:</b> Cloudflare DDoS protection.<br><b>Scenario:</b> AWS Shield blocking large-scale DDoS in 2020.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q79. What is port scanning?
+  <div class="answer">Port scanning identifies open ports on a system.<br><b>Example:</b> Nmap scanning ports.<br><b>Scenario:</b> Attackers scanning to find SSH on port 22.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q80. What is packet sniffing?
+  <div class="answer">Packet sniffing captures network packets to analyze traffic.<br><b>Example:</b> Wireshark.<br><b>Scenario:</b> Hackers sniff WiFi traffic to steal credentials.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q81. What is a proxy server?
+  <div class="answer">A proxy server acts as an intermediary between users and the internet.<br><b>Example:</b> Squid proxy.<br><b>Scenario:</b> Companies use proxies to filter employee browsing.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q82. What is a honeypot?
+  <div class="answer">A honeypot is a decoy system set up to attract attackers and study their methods.<br><b>Example:</b> Dionaea honeypot.<br><b>Scenario:</b> Cybersecurity teams use honeypots to detect new malware.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q83. What is MAC address filtering?
+  <div class="answer">MAC filtering restricts network access to specific device MAC addresses.<br><b>Example:</b> Router configuration.<br><b>Scenario:</b> WiFi networks allowing only authorized laptops.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q84. What is ARP spoofing?
+  <div class="answer">ARP spoofing is a type of attack where fake ARP messages are sent to link the attacker’s MAC with the victim’s IP.<br><b>Example:</b> Ettercap tool.<br><b>Scenario:</b> Hackers intercept LAN communication.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q85. What is DNS spoofing?
+  <div class="answer">DNS spoofing redirects traffic to malicious websites by corrupting DNS records.<br><b>Example:</b> Fake banking sites.<br><b>Scenario:</b> Users entering credentials on a fake site.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q86. What is man-in-the-middle attack?
+  <div class="answer">An attacker secretly intercepts and alters communication between two parties.<br><b>Example:</b> HTTPS stripping.<br><b>Scenario:</b> Hackers intercept online banking communication.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q87. What is session hijacking?
+  <div class="answer">Attackers steal a valid user session to gain unauthorized access.<br><b>Example:</b> Cookie theft.<br><b>Scenario:</b> Stealing user sessions in unsecured WiFi.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q88. What is network segmentation?
+  <div class="answer">Dividing networks into segments to improve security.<br><b>Example:</b> VLANs.<br><b>Scenario:</b> Separating guest WiFi from internal company LAN.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q89. What is IPsec?
+  <div class="answer">IPsec is a protocol suite for securing IP communication by authenticating and encrypting packets.<br><b>Example:</b> IPsec VPN.<br><b>Scenario:</b> Remote employees securely connect to office network.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q90. What is TLS handshake?
+  <div class="answer">TLS handshake establishes a secure connection by negotiating encryption keys.<br><b>Example:</b> HTTPS websites.<br><b>Scenario:</b> Browser connecting securely to PayPal.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q91. What is SSL stripping?
+  <div class="answer">SSL stripping downgrades HTTPS traffic to HTTP to steal data.<br><b>Example:</b> Using SSLStrip tool.<br><b>Scenario:</b> Public WiFi attacks.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q92. What is a DMZ in networking?
+  <div class="answer">A DMZ (Demilitarized Zone) is a separate network zone for public-facing servers.<br><b>Example:</b> Hosting a web server in DMZ.<br><b>Scenario:</b> Prevents attackers from directly accessing internal LAN.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q93. What is a zero trust model?
+  <div class="answer">Zero trust assumes no device or user is trusted by default, requiring verification.<br><b>Example:</b> Multi-factor authentication.<br><b>Scenario:</b> Corporate networks verifying each access attempt.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q94. What is 2FA in network security?
+  <div class="answer">Two-factor authentication adds an extra verification step beyond password.<br><b>Example:</b> OTP on mobile.<br><b>Scenario:</b> Gmail asking for OTP after password login.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q95. What is WiFi encryption?
+  <div class="answer">WiFi encryption protects wireless communication using keys.<br><b>Example:</b> WPA3.<br><b>Scenario:</b> Securing home WiFi with WPA2/WPA3.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q96. What is a captive portal?
+  <div class="answer">A captive portal is a web page shown to users before granting WiFi access.<br><b>Example:</b> Hotel WiFi login page.<br><b>Scenario:</b> Airports requiring login before browsing.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q97. What is VLAN?
+  <div class="answer">VLAN (Virtual LAN) groups devices logically instead of physically.<br><b>Example:</b> VLAN 10 for finance, VLAN 20 for HR.<br><b>Scenario:</b> University networks separating student and staff traffic.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q98. What is NAT in networking?
+  <div class="answer">Network Address Translation (NAT) maps private IPs to a public IP.<br><b>Example:</b> Home router NAT.<br><b>Scenario:</b> Multiple devices sharing one internet IP.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q99. What is DNSSEC?
+  <div class="answer">DNSSEC secures DNS queries by verifying authenticity.<br><b>Example:</b> DNS records signed with digital signatures.<br><b>Scenario:</b> Prevents DNS spoofing attacks.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q100. What is an access control list (ACL)?
+  <div class="answer">ACLs define which users or systems can access resources.<br><b>Example:</b> Router ACL.<br><b>Scenario:</b> Allowing only admins to access database servers.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q101. What is SIEM?
+  <div class="answer">SIEM (Security Information and Event Management) collects and analyzes security logs.<br><b>Example:</b> Splunk, ELK.<br><b>Scenario:</b> Detecting insider threats using log analysis.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q102. What is SOC in cybersecurity?
+  <div class="answer">SOC (Security Operations Center) is a dedicated team that monitors and defends networks.<br><b>Example:</b> IBM SOC.<br><b>Scenario:</b> 24/7 monitoring against cyber threats.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q103. What is endpoint security?
+  <div class="answer">Endpoint security protects devices like PCs, laptops, and mobiles from threats.<br><b>Example:</b> Antivirus software.<br><b>Scenario:</b> Companies install endpoint protection on employee laptops.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q104. What is email spoofing?
+  <div class="answer">Email spoofing forges sender address to trick recipients.<br><b>Example:</b> Phishing emails pretending to be banks.<br><b>Scenario:</b> Victims clicking malicious links in fake emails.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q105. What is ransomware in networking?
+  <div class="answer">Ransomware encrypts files and demands ransom for decryption.<br><b>Example:</b> WannaCry ransomware.<br><b>Scenario:</b> Hospitals locked out of patient records until ransom is paid.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q106. What is ethical hacking?
+  <div class="answer">Ethical hacking is legally probing systems to find vulnerabilities before attackers do.<br><b>Example:</b> Penetration testing by certified hackers.<br><b>Scenario:</b> Companies hire ethical hackers to secure websites.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q107. What is penetration testing?
+  <div class="answer">Simulated cyber attack on systems to find and fix security weaknesses.<br><b>Example:</b> Testing login bypass on a web app.<br><b>Scenario:</b> Ensuring corporate web applications are secure before launch.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q108. What are white-hat hackers?
+  <div class="answer">Hackers who legally test systems for security.<br><b>Example:</b> Certified Ethical Hacker (CEH).<br><b>Scenario:</b> Security professionals performing vulnerability assessments.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q109. What are black-hat hackers?
+  <div class="answer">Hackers who exploit systems illegally.<br><b>Example:</b> Cybercriminals stealing credit card data.<br><b>Scenario:</b> Malware attacks on online stores.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q110. What are grey-hat hackers?
+  <div class="answer">Hackers who may break laws but without malicious intent.<br><b>Example:</b> Finding vulnerability and reporting anonymously.<br><b>Scenario:</b> Discovering website flaws without permission.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q111. What is footprinting?
+  <div class="answer">Gathering information about a target system.<br><b>Example:</b> WHOIS lookup, social media profiling.<br><b>Scenario:</b> Pen testers gathering domain details.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q112. What is reconnaissance in pentesting?
+  <div class="answer">Collecting information to understand a target's security posture.<br><b>Example:</b> Scanning open ports.<br><b>Scenario:</b> Ethical hackers mapping network before attack simulation.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q113. What is vulnerability assessment?
+  <div class="answer">Identifying, quantifying, and prioritizing system vulnerabilities.<br><b>Example:</b> Running Nessus scan.<br><b>Scenario:</b> Detecting outdated software that can be exploited.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q114. What is social engineering?
+  <div class="answer">Manipulating people into revealing confidential info.<br><b>Example:</b> Phishing emails.<br><b>Scenario:</b> Employees tricked into sharing passwords.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q115. What is phishing?
+  <div class="answer">Fraudulent attempts to obtain sensitive info via email or messages.<br><b>Example:</b> Fake bank login email.<br><b>Scenario:</b> Users unknowingly entering credentials on a spoofed website.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q116. What is password cracking?
+  <div class="answer">Breaking passwords using methods like brute-force or dictionary attacks.<br><b>Example:</b> Using John the Ripper.<br><b>Scenario:</b> Recovering forgotten passwords in a lab environment.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q117. What is brute-force attack?
+  <div class="answer">Attempting all possible password combinations.<br><b>Example:</b> Automated scripts to guess passwords.<br><b>Scenario:</b> Testing weak passwords in ethical hacking labs.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q118. What is dictionary attack?
+  <div class="answer">Using a list of common words to guess passwords.<br><b>Example:</b> Attempting 'password123', 'qwerty'.<br><b>Scenario:</b> Security testers checking common password vulnerabilities.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q119. What is sniffing in pentesting?
+  <div class="answer">Monitoring and capturing network packets.<br><b>Example:</b> Wireshark used ethically.<br><b>Scenario:</b> Testing if sensitive data is transmitted unencrypted.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q120. What is session hijacking?
+  <div class="answer">Taking over an active session to impersonate a user.<br><b>Example:</b> Capturing session cookies.<br><b>Scenario:</b> Testing web apps for secure session management.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q121. What is SQL injection?
+  <div class="answer">Exploiting input fields to execute malicious SQL queries.<br><b>Example:</b> ' OR 1=1 --<br><b>Scenario:</b> Testing database security in web apps.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q122. What is XSS (Cross-Site Scripting)?
+  <div class="answer">Injecting malicious scripts into webpages viewed by users.<br><b>Example:</b> <script>alert('xss')</script>.<br><b>Scenario:</b> Pentesters checking input sanitization.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q123. What is CSRF (Cross-Site Request Forgery)?
+  <div class="answer">Forcing a user to perform unwanted actions on a web app.<br><b>Example:</b> Submitting form on behalf of a logged-in user.<br><b>Scenario:</b> Testing secure token implementation.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q124. What is privilege escalation?
+  <div class="answer">Gaining higher access rights than authorized.<br><b>Example:</b> Normal user exploiting a vulnerability to get admin rights.<br><b>Scenario:</b> Ethical hacking labs simulate escalation attacks.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q125. What is rootkit?
+  <div class="answer">Malware designed to gain unauthorized root access.<br><b>Example:</b> Linux rootkits.<br><b>Scenario:</b> Pen testers test detection mechanisms.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q126. What is keylogger?
+  <div class="answer">Software that records keystrokes.<br><b>Example:</b> Ethical testing using keylogger in lab.<br><b>Scenario:</b> Checking endpoint security.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q127. What is vulnerability scanning?
+  <div class="answer">Automatically scanning systems to identify known vulnerabilities.<br><b>Example:</b> OpenVAS scanner.<br><b>Scenario:</b> Routine security assessment of corporate network.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q128. What is social engineering toolkit (SET)?
+  <div class="answer">A tool to simulate social engineering attacks.<br><b>Example:</b> Phishing email simulation.<br><b>Scenario:</b> Security teams train employees against phishing.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q129. What is network mapping?
+  <div class="answer">Identifying devices and network topology.<br><b>Example:</b> Nmap mapping.<br><b>Scenario:</b> Preparing for penetration testing.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q130. What is footprinting vs scanning?
+  <div class="answer">Footprinting gathers info; scanning probes systems for vulnerabilities.<br><b>Example:</b> WHOIS lookup vs port scan.<br><b>Scenario:</b> Step-by-step ethical hacking methodology.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q131. What is wireless network hacking?
+  <div class="answer">Exploiting vulnerabilities in WiFi networks.<br><b>Example:</b> WPA2 handshake capture.<br><b>Scenario:</b> Pen testers testing home/office WiFi security.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q132. What is wardriving?
+  <div class="answer">Driving around to find unsecured WiFi networks.<br><b>Example:</b> Using WiFi Pineapple.<br><b>Scenario:</b> Security professionals auditing WiFi coverage.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q133. What is a man-in-the-middle attack in pentesting?
+  <div class="answer">Intercepting communication between two parties to capture or alter data.<br><b>Example:</b> ARP spoofing.<br><b>Scenario:</b> Ethical hackers checking secure communication.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q134. What is a honeypot used for in pentesting?
+  <div class="answer">A decoy system to attract attackers and study methods.<br><b>Example:</b> Creating fake vulnerable server.<br><b>Scenario:</b> Security teams analyze attack behavior.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q135. What is fuzzing?
+  <div class="answer">Testing software by inputting random data to find vulnerabilities.<br><b>Example:</b> Sending random strings to application inputs.<br><b>Scenario:</b> Detecting crashes and security flaws in software.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q136. What is ethical use of malware in pentesting?
+  <div class="answer">Using malware in controlled lab environments to test defenses.<br><b>Example:</b> Deploying harmless virus sample to endpoint.<br><b>Scenario:</b> Testing antivirus effectiveness.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q137. What is red teaming?
+  <div class="answer">Simulating real-world attacks to test security measures.<br><b>Example:</b> Full-scope attack simulation.<br><b>Scenario:</b> Organizations evaluate readiness against attackers.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q138. What is blue teaming?
+  <div class="answer">Defensive team that protects systems from attacks.<br><b>Example:</b> Monitoring logs and responding to threats.<br><b>Scenario:</b> SOC teams defending corporate networks.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q139. What is pivoting in pentesting?
+  <div class="answer">Using a compromised system to attack other systems in network.<br><b>Example:</b> Hacking internal server via a compromised host.<br><b>Scenario:</b> Testing lateral movement defense.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q140. What is post-exploitation?
+  <div class="answer">Actions taken after gaining access to maintain control and gather info.<br><b>Example:</b> Dumping password hashes.<br><b>Scenario:</b> Evaluating persistence measures in ethical hacking.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q141. What is malware?
+  <div class="answer">Malware is software designed to harm or exploit systems.<br><b>Example:</b> Virus, Worm, Trojan.<br><b>Scenario:</b> Testing detection systems in a lab environment.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q142. What is a virus?
+  <div class="answer">A program that attaches to files and spreads.<br><b>Example:</b> File infecting virus.<br><b>Scenario:</b> Testing antivirus software.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q143. What is a worm?
+  <div class="answer">A self-replicating malware that spreads over networks.<br><b>Example:</b> WannaCry.<br><b>Scenario:</b> Evaluating network segmentation defense.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q144. What is a Trojan?
+  <div class="answer">Malware disguised as legitimate software.<br><b>Example:</b> Remote Access Trojan (RAT).<br><b>Scenario:</b> Pentesting endpoint protection.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q145. What is ransomware?
+  <div class="answer">Encrypts files and demands ransom for decryption.<br><b>Example:</b> WannaCry.<br><b>Scenario:</b> Testing backup and recovery plans.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q146. What is spyware?
+  <div class="answer">Software that secretly collects user info.<br><b>Example:</b> Keylogger spyware.<br><b>Scenario:</b> Checking detection mechanisms for spyware.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q147. What is adware?
+  <div class="answer">Software that shows unwanted ads.<br><b>Example:</b> Pop-up ads software.<br><b>Scenario:</b> Evaluating ad-blocking measures.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q148. What is rootkit?
+  <div class="answer">Malware designed to gain unauthorized root access.<br><b>Example:</b> Linux rootkits.<br><b>Scenario:</b> Testing detection and removal tools.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q149. What is a botnet?
+  <div class="answer">A network of infected computers controlled remotely.<br><b>Example:</b> Mirai botnet.<br><b>Scenario:</b> Testing DDoS mitigation.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q150. What is phishing?
+  <div class="answer">Fraud attempts to get sensitive info via emails or messages.<br><b>Example:</b> Fake bank email.<br><b>Scenario:</b> Employee awareness training.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q151. What is spear phishing?
+  <div class="answer">Targeted phishing attack on specific individuals or organizations.<br><b>Example:</b> CEO impersonation email.<br><b>Scenario:</b> Testing advanced phishing defense.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q152. What is whaling?
+  <div class="answer">Spear phishing targeting high-profile individuals.<br><b>Example:</b> Email to CFO requesting fund transfer.<br><b>Scenario:</b> Corporate security testing.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q153. What is scareware?
+  <div class="answer">Malware that tricks users to buy fake security software.<br><b>Example:</b> Fake antivirus alert.<br><b>Scenario:</b> Training users to identify fake warnings.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q154. What is logic bomb?
+  <div class="answer">Malware triggered by specific conditions.<br><b>Example:</b> File deletion on a date.<br><b>Scenario:</b> Testing automated detection systems.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q155. What is spyware vs adware?
+  <div class="answer">Spyware steals data; adware shows unwanted ads.<br><b>Example:</b> Keylogger vs pop-up ads.<br><b>Scenario:</b> Testing endpoint defenses.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q156. What is fileless malware?
+  <div class="answer">Malware that resides in memory without writing files.<br><b>Example:</b> PowerShell-based attacks.<br><b>Scenario:</b> Testing advanced detection systems.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q157. What is polymorphic malware?
+  <div class="answer">Malware that changes code to evade detection.<br><b>Example:</b> Polymorphic virus.<br><b>Scenario:</b> Anti-virus software testing.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q158. What is macro virus?
+  <div class="answer">Virus embedded in documents using macros.<br><b>Example:</b> Word macro virus.<br><b>Scenario:</b> Office security testing.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q159. What is a keylogger?
+  <div class="answer">Records keystrokes to steal sensitive data.<br><b>Example:</b> Ethical testing keylogger.<br><b>Scenario:</b> Testing endpoint monitoring.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q160. What is a threat vector?
+  <div class="answer">Pathway used by malware or attacker to enter system.<br><b>Example:</b> Email attachment, USB drive.<br><b>Scenario:</b> Identifying points of vulnerability in network security.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q161. What is ransomware vs spyware?
+  <div class="answer">Ransomware encrypts files for ransom; spyware steals information silently.<br><b>Example:</b> WannaCry vs keylogger.<br><b>Scenario:</b> Testing different malware detection systems.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q162. What is Trojan horse?
+  <div class="answer">Malware disguised as legitimate software to gain access.<br><b>Example:</b> RAT.<br><b>Scenario:</b> Endpoint security evaluation.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q163. What is rootkit vs keylogger?
+  <div class="answer">Rootkit hides presence and gains root access; keylogger captures keystrokes.<br><b>Example:</b> Linux rootkit vs spyware keylogger.<br><b>Scenario:</b> Security testing in lab environment.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q164. What is polymorphic malware vs fileless malware?
+  <div class="answer">Polymorphic malware changes code to evade detection; fileless malware runs in memory without files.<br><b>Example:</b> Polymorphic virus vs PowerShell attacks.<br><b>Scenario:</b> Testing advanced anti-malware defenses.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q165. What is botnet vs malware?
+  <div class="answer">Botnet is a network of infected devices; malware is individual malicious software.<br><b>Example:</b> Mirai botnet vs Trojan.<br><b>Scenario:</b> DDoS mitigation and malware detection.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q166. What is phishing vs spear phishing?
+  <div class="answer">Phishing is general mass targeting; spear phishing is targeted at specific users.<br><b>Example:</b> Random fake bank email vs CEO impersonation.<br><b>Scenario:</b> Employee awareness training.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q167. What is whaling vs phishing?
+  <div class="answer">Whaling targets high-profile individuals; phishing targets general users.<br><b>Example:</b> CFO fund transfer request email.<br><b>Scenario:</b> Corporate security evaluation.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q168. What is scareware vs ransomware?
+  <div class="answer">Scareware tricks user to buy fake software; ransomware encrypts files demanding ransom.<br><b>Example:</b> Fake antivirus vs WannaCry.<br><b>Scenario:</b> Testing incident response strategies.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q169. What is logic bomb vs virus?
+  <div class="answer">Logic bomb triggers on conditions; virus spreads and infects files.<br><b>Example:</b> File deletion on date vs file-infecting virus.<br><b>Scenario:</b> Lab testing for attack detection.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q170. What is macro virus vs fileless malware?
+  <div class="answer">Macro virus uses document macros; fileless malware runs in memory without files.<br><b>Example:</b> Word macro virus vs PowerShell attack.<br><b>Scenario:</b> Office security evaluation.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q171. What is advanced persistent threat (APT)?
+  <div class="answer">Long-term targeted attack aiming to steal data over time.<br><b>Example:</b> Nation-state cyber espionage.<br><b>Scenario:</b> Corporate network defense against persistent attackers.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q172. What is zero-day attack?
+  <div class="answer">Exploiting unknown vulnerabilities before patch release.<br><b>Example:</b> Exploiting unpatched software.<br><b>Scenario:</b> Testing emergency response.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q173. What is malware obfuscation?
+  <div class="answer">Techniques to hide malware to evade detection.<br><b>Example:</b> Code encryption.<br><b>Scenario:</b> Evaluating anti-malware software effectiveness.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q174. What is malware analysis?
+  <div class="answer">Studying malware behavior to detect and mitigate threats.<br><b>Example:</b> Reverse engineering Trojan.<br><b>Scenario:</b> Cybersecurity labs analyzing new malware.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q175. What is threat intelligence?
+  <div class="answer">Information about existing or emerging threats.<br><b>Example:</b> Indicators of compromise (IoC).<br><b>Scenario:</b> Organizations preparing defenses against upcoming malware campaigns.</div>
+</div>
+<div class="question" onclick="toggleAnswer(this)">Q176. What are cybersecurity best practices?
+  <div class="answer">Guidelines to protect systems and data.<br><b>Example:</b> Strong passwords, regular updates.<br><b>Scenario:</b> Employee awareness programs in companies.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q177. What is multi-factor authentication (MFA)?
+  <div class="answer">Requires more than one form of verification.<br><b>Example:</b> Password + OTP.<br><b>Scenario:</b> Securing email accounts.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q178. What is strong password policy?
+  <div class="answer">Creating complex and unique passwords.<br><b>Example:</b> Mix of letters, numbers, symbols.<br><b>Scenario:</b> Company mandates password updates every 90 days.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q179. What is regular software update?
+  <div class="answer">Keeping systems patched to fix vulnerabilities.<br><b>Example:</b> Windows Update.<br><b>Scenario:</b> Patching server OS to prevent exploits.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q180. What is anti-virus software?
+  <div class="answer">Program to detect and remove malware.<br><b>Example:</b> Avast, Bitdefender.<br><b>Scenario:</b> Endpoint protection for employee laptops.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q181. What is firewall?
+  <div class="answer">Monitors and controls network traffic.<br><b>Example:</b> Windows Firewall, Cisco ASA.<br><b>Scenario:</b> Blocking unauthorized access to servers.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q182. What is VPN?
+  <div class="answer">Secure connection over public network.<br><b>Example:</b> NordVPN, company VPN.<br><b>Scenario:</b> Remote employees accessing corporate resources safely.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q183. What is intrusion detection system (IDS)?
+  <div class="answer">Monitors network for suspicious activities.<br><b>Example:</b> Snort IDS.<br><b>Scenario:</b> Detecting unusual login attempts.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q184. What is intrusion prevention system (IPS)?
+  <div class="answer">Detects and blocks malicious network traffic.<br><b>Example:</b> Cisco IPS.<br><b>Scenario:</b> Preventing DDoS attacks on websites.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q185. What is backup and recovery?
+  <div class="answer">Creating copies of data to restore in case of loss.<br><b>Example:</b> Cloud backup.<br><b>Scenario:</b> Restoring files after ransomware attack.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q186. What is security awareness training?
+  <div class="answer">Educating users about cybersecurity threats.<br><b>Example:</b> Phishing simulation.<br><b>Scenario:</b> Employees learn to spot malicious emails.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q187. What is access control?
+  <div class="answer">Restricting system access to authorized users.<br><b>Example:</b> Role-based access control (RBAC).<br><b>Scenario:</b> Finance team cannot access HR records.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q188. What is patch management?
+  <div class="answer">Regularly applying updates and security fixes.<br><b>Example:</b> OS patch deployment.<br><b>Scenario:</b> Protecting systems from known vulnerabilities.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q189. What is endpoint protection?
+  <div class="answer">Security measures on devices like laptops, mobiles.<br><b>Example:</b> Antivirus, firewall, encryption.<br><b>Scenario:</b> Protecting company laptops from malware.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q190. What is data encryption?
+  <div class="answer">Converting data to unreadable form for unauthorized users.<br><b>Example:</b> AES encryption.<br><b>Scenario:</b> Encrypting sensitive files before cloud upload.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q191. What is secure coding?
+  <div class="answer">Writing code with security in mind to prevent vulnerabilities.<br><b>Example:</b> Input validation, parameterized queries.<br><b>Scenario:</b> Developing secure web applications.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q192. What is patch testing?
+  <div class="answer">Verifying updates don’t break existing systems.<br><b>Example:</b> Test environment before deployment.<br><b>Scenario:</b> Ensuring patches don’t disrupt production apps.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q193. What is penetration testing tool?
+  <div class="answer">Software used to simulate attacks and find vulnerabilities.<br><b>Example:</b> Metasploit, Burp Suite.<br><b>Scenario:</b> Testing company web apps before release.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q194. What is password manager?
+  <div class="answer">Stores and generates complex passwords securely.<br><b>Example:</b> LastPass, 1Password.<br><b>Scenario:</b> Employees manage multiple secure credentials.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q195. What is threat monitoring?
+  <div class="answer">Continuous observation for cyber threats.<br><b>Example:</b> SIEM tools like Splunk.<br><b>Scenario:</b> Detecting anomalies in network traffic.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q196. What is VPN best practice?
+  <div class="answer">Use strong encryption, limit access, and monitor usage.<br><b>Example:</b> OpenVPN with MFA.<br><b>Scenario:</b> Secure remote work access.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q197. What is two-factor authentication best practice?
+  <div class="answer">Use MFA for critical accounts and change backup codes regularly.<br><b>Example:</b> OTP via authenticator app.<br><b>Scenario:</b> Protecting corporate email.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q198. What is network segmentation?
+  <div class="answer">Dividing network into segments for security.<br><b>Example:</b> VLANs, DMZs.<br><b>Scenario:</b> Prevent attackers from moving laterally.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q199. What is logging and auditing?
+  <div class="answer">Keeping records of system activity to detect anomalies.<br><b>Example:</b> Login logs, system access logs.<br><b>Scenario:</b> Investigating security incidents.</div>
+</div>
+
+<div class="question" onclick="toggleAnswer(this)">Q200. What is incident response plan?
+  <div class="answer">Prepared steps to respond to security incidents.<br><b>Example:</b> Contain, eradicate, recover.<br><b>Scenario:</b> Responding to ransomware attack in corporate environment.</div>
+</div>
+<script>
+function toggleAnswer(element) {
+  var answer = element.querySelector('.answer');
+  if(answer.style.display === 'block') {
+    answer.style.display = 'none';
+  } else {
+    answer.style.display = 'block';
+  }
+}
+</script>
+<hr>
+  <div class="text-end">
+    <a href="/dashboard" class="btn btn-primary">🔙 Back to Dashboard</a>
+  </div>
+</body>
+</html>

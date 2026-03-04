@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cryptora – Encryption</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-4 mb-5">
+
+    <!-- 🔙 Back Button -->
+    <a href="/dashboard" class="btn btn-secondary mb-4">← Back to Dashboard</a>
+
+    <!-- 🔐 Page Title -->
+    <h1 class="text-primary" style="font-size: 40px;">🔐 Encryption & Cryptography</h1>
+    <strong><p class="lead" style="font-size: 25px;">
+      "Learn how encryption protects your data and keeps your online activity safe. Dive into the heart of cybersecurity — Cryptography!"
+    </p></strong>
+
+    <p class="lead" style="font-size: 20px;">
+    Cryptography is the science of securing communication between parties by transforming data into a form that cannot be understood by unauthorized individuals. 
+    It plays a central role in protecting information in the digital world — from passwords and online banking to confidential emails.
+ </p>
+
+    <!-- 📸 Banner Image (Replace file name) -->
+    <img src="{{ url_for('static', filename='images/encryption_banner.png') }}" alt="Encryption Banner" class="img-fluid rounded mb-4">
+
+    <!-- ✅ Cryptography Overview -->
+<h3 class="mt-4">🔐 What is Cryptography?</h3>
+<p><strong>Cryptography</strong> is the science and technique of securing digital information by converting it into a secret code to prevent unauthorized access. It plays a key role in <strong>cybersecurity</strong> by protecting data privacy and ensuring safe communication.</p>
+
+<h4 class="mt-3">🌐 Core Principles of Cryptography:</h4>
+<ul>
+  <li><strong>Confidentiality:</strong> Only authorized users can view the data.</li>
+  <li><strong>Integrity:</strong> Ensures data remains unchanged during transfer.</li>
+  <li><strong>Authentication:</strong> Confirms the identity of sender and receiver.</li>
+  <li><strong>Non-repudiation:</strong> Prevents anyone from denying that they sent or received the data.</li>
+</ul>
+
+<h4 class="mt-4">🧠 Types of Cryptography:</h4>
+<p>There are three major types of cryptography used in data security:</p>
+<ul>
+  <li><strong>Symmetric Key Cryptography:</strong> Uses a single secret key for both encryption and decryption. It’s fast and ideal for large amounts of data.</li>
+  <li><strong>Asymmetric Key Cryptography:</strong> Uses a pair of keys (public and private). It’s more secure and widely used for secure email, digital signatures, and SSL connections.</li>
+  <li><strong>Hash Functions:</strong> Converts data into a fixed-size string (hash) that cannot be reversed. Mostly used in password storage and integrity verification.</li>
+</ul>
+
+<p><em>Cryptography is the backbone of online security, used in everything from messaging apps and websites to banking and government systems.</em></p>
+
+    <!-- 📸 Image for types (replace filename) -->
+    <img src="{{ url_for('static', filename='images/types_of_crypto.jpg') }}"
+    alt="Types of Cryptography" 
+    class="d-block mx-auto img-fluid mb-4"
+     style="max-width: 150%; border-radius: 50px;"> 
+    <!-- 🔑 Symmetric -->
+    <h4>🔑 Symmetric Encryption (Private Key)</h4>
+    <p style="font-size:18px;">
+      In symmetric encryption, the same key is used for both encryption and decryption. It is fast and suitable for large data transfers.
+    </p>
+    <!-- Symmetric Encryption Details -->
+<div class="accordion my-4" id="symmetricAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="symmetricHead">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#symmetricCollapse" aria-expanded="false" aria-controls="symmetricCollapse">
+        🔍 Click to Learn How Symmetric Encryption Works
+      </button>
+    </h2>
+    <div id="symmetricCollapse" class="accordion-collapse collapse" aria-labelledby="symmetricHead" data-bs-parent="#symmetricAccordion">
+      <div class="accordion-body" style="font-size:18px;">
+  <p><strong>Symmetric encryption</strong> is a cryptographic method where <strong>one secret key</strong> is used to both encrypt and decrypt the data. It is widely used due to its speed, simplicity, and effectiveness for large-scale data encryption.</p>
+
+  <h5>🔑 How It Works:</h5>
+  <p>The sender encrypts the message using a secret key, and the receiver uses the same key to decrypt it. Both parties must have access to this key beforehand, making secure key sharing essential.</p>
+
+  <h5>✅ Key Characteristics:</h5>
+  <ul>
+    <li>Uses a single shared key for encryption and decryption</li>
+    <li>Much faster than asymmetric encryption</li>
+    <li>Efficient for encrypting large volumes of data</li>
+    <li>Requires a secure method to share the key</li>
+    <li>Mostly used in closed systems, where key exchange is controlled</li>
+  </ul>
+
+  <h5>🧠 Real-World Examples:</h5>
+  <ul>
+    <li>Encrypting files with <strong>AES-256</strong> in banking and finance</li>
+    <li><strong>WPA2/WPA3</strong> encryption in Wi-Fi routers</li>
+    <li><strong>BitLocker</strong> and <strong>VeraCrypt</strong> for disk encryption</li>
+    <li><strong>SSL/TLS</strong> sessions use symmetric encryption after handshake</li>
+    <li><strong>VPNs</strong> use symmetric encryption to secure data in transit</li>
+  </ul>
+
+  <h5>🔐 Common Algorithms:</h5>
+  <ul>
+    <li><strong>AES (Advanced Encryption Standard)</strong> – Most widely used today</li>
+    <li><strong>DES (Data Encryption Standard)</strong> – Now obsolete due to small key size</li>
+    <li><strong>3DES (Triple DES)</strong> – More secure upgrade of DES</li>
+    <li><strong>Blowfish / Twofish</strong> – Flexible and fast encryption methods</li>
+  </ul>
+
+  <h5>💡 Advantages:</h5>
+  <ul>
+    <li>High speed encryption and decryption</li>
+    <li>Less computational power required</li>
+    <li>Simple implementation</li>
+  </ul>
+
+  <h5>⚠️ Disadvantages:</h5>
+  <ul>
+    <li>Key distribution is a challenge (secure sharing)</li>
+    <li>If the key is compromised, all data is at risk</li>
+    <li>No built-in sender verification (no authentication)</li>
+  </ul>
+  <h5>🖥️ Linux Commands Used in Symmetric Encryption:</h5>
+<pre style="background-color: #1e1e1e; color: #ffffff; padding: 10px; border-radius: 8px; font-family: monospace;"><code>
+# Generate a random 256-bit key using OpenSSL
+openssl rand -hex 32
+
+# Encrypt a file using AES-256
+openssl enc -aes-256-cbc -salt -in myfile.txt -out encrypted_file.txt
+
+# Decrypt the file
+openssl enc -d -aes-256-cbc -in encrypted_file.txt -out decrypted_file.txt</code>
+</pre>
+
+  <h5>📘 Fun Fact:</h5>
+  <p>During World War II, the German Enigma machine was an early form of symmetric encryption — where both sender and receiver needed to set the machine to the same configuration (shared key).</p>
+
+  <p class="mt-3">In modern cybersecurity, symmetric encryption is still the backbone of secure data transmission when speed and efficiency matter most. It is often combined with asymmetric encryption to exchange the secret key securely.</p>
+</div>
+
+    </div>
+  </div>
+</div>
+
+    <img src="{{ url_for('static', filename='images/symmetric.png') }}"
+     alt="Symmetric Encryption"
+     class="d-block mx-auto img-fluid mb-4"
+     style="max-width: 80%; border-radius: 10px;">
+    <!-- 🔐 Symmetric Encryption Algorithms Accordion -->
+<div class="accordion mb-5" id="symmetricEncryption">
+  <!-- AES -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingAES">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAES" aria-expanded="false" aria-controls="collapseAES">
+        🔐 AES (Advanced Encryption Standard)
+      </button>
+    </h2>
+    <div id="collapseAES" class="accordion-collapse collapse" aria-labelledby="headingAES" data-bs-parent="#symmetricEncryption">
+      <div class="accordion-body" style="font-size:17px;">
+        AES is a widely used symmetric encryption algorithm approved by the U.S. government. It encrypts data in blocks of <strong>128 bits</strong> using <strong>128, 192, or 256-bit keys</strong>.
+        <ul>
+          <li><strong>Strong and secure</strong> – resistant to known attacks</li>
+          <li><strong>Used in:</strong> SSL, VPNs, mobile apps, Wi-Fi (WPA2/WPA3)</li>
+          <li>Recommended for modern encryption</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DES -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingDES">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDES" aria-expanded="false" aria-controls="collapseDES">
+        🧱 DES (Data Encryption Standard)
+      </button>
+    </h2>
+    <div id="collapseDES" class="accordion-collapse collapse" aria-labelledby="headingDES" data-bs-parent="#symmetricEncryption">
+      <div class="accordion-body" style="font-size:17px;">
+        DES was the first major encryption standard. It encrypts data in <strong>64-bit blocks</strong> using a <strong>56-bit key</strong>.
+        <ul>
+          <li>Now considered <strong>insecure</strong> due to small key size</li>
+          <li><strong>Used in:</strong> Legacy systems, ATMs</li>
+          <li><strong>Replaced by:</strong> AES and 3DES</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blowfish -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingBlowfish">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBlowfish" aria-expanded="false" aria-controls="collapseBlowfish">
+        🐡 Blowfish
+      </button>
+    </h2>
+    <div id="collapseBlowfish" class="accordion-collapse collapse" aria-labelledby="headingBlowfish" data-bs-parent="#symmetricEncryption">
+      <div class="accordion-body" style="font-size:17px;">
+        Blowfish is a fast and flexible encryption algorithm. It uses a <strong>key size between 32 to 448 bits</strong>.
+        <ul>
+          <li><strong>Free and unpatented</strong></li>
+          <li><strong>Used in:</strong> File encryption, bcrypt, secure storage</li>
+          <li><strong>Good alternative</strong> to DES</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- RC4 -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingRC4">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRC4" aria-expanded="false" aria-controls="collapseRC4">
+        🔁 RC4 (Rivest Cipher 4)
+      </button>
+    </h2>
+    <div id="collapseRC4" class="accordion-collapse collapse" aria-labelledby="headingRC4" data-bs-parent="#symmetricEncryption">
+      <div class="accordion-body" style="font-size:17px;">
+        RC4 is a stream cipher that encrypts data one byte at a time. It was once widely used, but is now outdated.
+        <ul>
+          <li><strong>Fast and lightweight</strong></li>
+          <li><strong>Used in:</strong> Early SSL/TLS, WEP Wi-Fi</li>
+          <li><strong>Not secure</strong> – avoid using in modern systems</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- RC5 -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingRC5">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRC5" aria-expanded="false" aria-controls="collapseRC5">
+        🔐 RC5 (Rivest Cipher 5)
+      </button>
+    </h2>
+    <div id="collapseRC5" class="accordion-collapse collapse" aria-labelledby="headingRC5" data-bs-parent="#symmetricEncryption">
+      <div class="accordion-body" style="font-size:17px;">
+        RC5 is a customizable block cipher with variable block sizes (32, 64, or 128 bits) and key lengths (up to 2040 bits).
+        <ul>
+          <li><strong>Highly flexible</strong> and <strong>efficient</strong></li>
+          <li><strong>Used in:</strong> Embedded systems, VPNs</li>
+          <li><strong>Good choice</strong> for performance-critical apps</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- 🔐 Asymmetric Encryption Section -->
+<h3 class="mt-5">🔐 Asymmetric Encryption (Public Key Cryptography)</h3>
+<p style="font-size:18px;">
+  Asymmetric encryption uses <strong>two different keys</strong>: a public key for encryption and a private key for decryption.
+  It’s widely used for secure communication, especially over the internet.
+</p>
+
+<!-- Accordion Box for Detailed Explanation -->
+<div class="accordion mb-5" id="asymAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingAsym">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAsym" aria-expanded="false" aria-controls="collapseAsym">
+        📘 Click to Learn More about Asymmetric Encryption
+      </button>
+    </h2>
+    <div id="collapseAsym" class="accordion-collapse collapse" aria-labelledby="headingAsym" data-bs-parent="#asymAccordion">
+      <div class="accordion-body" style="font-size:18px;">
+
+        <p>Asymmetric encryption is a powerful cryptographic technique that uses two different keys — a public key to encrypt data and a private key to decrypt it. Unlike symmetric encryption, the sender and receiver do not need to share the same key.<br>This method enhances security and is widely used in secure web communication, digital signatures, and key exchange protocols.</p><br>
+        <h4>💡 Key Characteristics of Asymmetric Encryption:</h4>
+        <ul>
+          <li><strong>Public Key:</strong> Shared openly and used to encrypt data.</li>
+          <li><strong>Private Key:</strong> Kept secret and used to decrypt data.</li>
+          <li><strong>One-way encryption:</strong> Only the private key can decrypt data encrypted with the public key.</li>
+          <li><strong>Use Cases:</strong> Secure web browsing (HTTPS), SSH, Digital Signatures, Secure Emails (PGP).</li>
+          <li><strong>Popular Algorithms:</strong> RSA, ECC, ElGamal, DSA</li>
+        </ul>
+        <h4>📌 Real-World Examples:</h4>
+          <ul>
+          <li>HTTPS / SSL certificates</li>
+          <li>Email encryption (e.g., PGP)</li>
+          <li>Digital Signatures</li>
+          <li>SSH login authentication</li>
+        </ul>
+        
+        <h5 class="mt-4">🧪 Example OpenSSL Commands:</h5>
+        <pre style="background-color: #1e1e1e; color: #ffffff; padding: 10px; border-radius: 8px; font-family: monospace;"><code>
+# 🔑 Generate RSA Private Key
+openssl genrsa -out private_key.pem 2048
+
+# 🌐 Generate Public Key from Private
+openssl rsa -in private_key.pem -pubout -out public_key.pem
+
+# 🔐 Encrypt a message using public key
+openssl rsautl -encrypt -inkey public_key.pem -pubin -in message.txt -out encrypted.bin
+
+# 🔓 Decrypt message using private key
+openssl rsautl -decrypt -inkey private_key.pem -in encrypted.bin -out decrypted.txt</code>
+        </pre>
+
+        <p><strong>📌 Note:</strong> Asymmetric encryption is slower but more secure than symmetric encryption and is often used for key exchange and digital signatures.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <img src="{{ url_for('static', filename='images/asymmetric.png') }}"
+     alt="Asymmetric Encryption"
+     class="d-block mx-auto img-fluid mb-4"
+     style="max-width: 80%; border-radius: 10px;">
+    <!-- 🔐 Asymmetric Encryption Algorithms Accordion -->
+<div class="accordion mb-5" id="asymmetricEncryption">
+  <!-- RSA -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingRSA">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRSA" aria-expanded="false" aria-controls="collapseRSA">
+        🔑 RSA (Rivest–Shamir–Adleman)
+      </button>
+    </h2>
+    <div id="collapseRSA" class="accordion-collapse collapse" aria-labelledby="headingRSA" data-bs-parent="#asymmetricEncryption">
+      <div class="accordion-body" style="font-size:17px;">
+        RSA is one of the most widely used public-key cryptographic algorithms. It uses a pair of keys — public and private — for secure data transmission.
+        <ul>
+          <li><strong>Used for:</strong> Secure emails, SSL/TLS, digital signatures</li>
+          <li><strong>Key size:</strong> Typically 2048 or 4096 bits</li>
+          <li><strong>Slower</strong> than symmetric encryption but more secure for key exchange</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ECC -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingECC">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseECC" aria-expanded="false" aria-controls="collapseECC">
+        📐 ECC (Elliptic Curve Cryptography)
+      </button>
+    </h2>
+    <div id="collapseECC" class="accordion-collapse collapse" aria-labelledby="headingECC" data-bs-parent="#asymmetricEncryption">
+      <div class="accordion-body" style="font-size:17px;">
+        ECC is a modern asymmetric algorithm that offers high security with smaller key sizes, making it ideal for mobile and IoT devices.
+        <ul>
+          <li><strong>Faster and lighter</strong> than RSA</li>
+          <li><strong>Used in:</strong> Bitcoin, TLS, secure messaging</li>
+          <li>Example curve: <code>secp256k1</code> (used in blockchain)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Diffie-Hellman -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingDH">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDH" aria-expanded="false" aria-controls="collapseDH">
+        🔄 Diffie–Hellman Key Exchange
+      </button>
+    </h2>
+    <div id="collapseDH" class="accordion-collapse collapse" aria-labelledby="headingDH" data-bs-parent="#asymmetricEncryption">
+      <div class="accordion-body" style="font-size:17px;">
+        Diffie-Hellman is a key exchange method that allows two parties to establish a shared secret over an insecure channel.
+        <ul>
+          <li><strong>Foundation</strong> for many modern protocols</li>
+          <li><strong>Used in:</strong> VPNs (IPSec), TLS handshake</li>
+          <li>Does not directly encrypt data — only generates a shared key</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ElGamal -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingElGamal">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElGamal" aria-expanded="false" aria-controls="collapseElGamal">
+        🛡️ ElGamal Encryption
+      </button>
+    </h2>
+    <div id="collapseElGamal" class="accordion-collapse collapse" aria-labelledby="headingElGamal" data-bs-parent="#asymmetricEncryption">
+      <div class="accordion-body" style="font-size:17px;">
+        ElGamal is a public-key encryption scheme based on the Diffie–Hellman principle. It provides both encryption and digital signatures.
+        <ul>
+          <li><strong>Probabilistic encryption</strong> — produces different ciphertexts each time</li>
+          <li><strong>Used in:</strong> PGP, GPG tools</li>
+          <li>Requires more computation and longer ciphertext</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- 🔄 Hashing -->
+    <h3 class="mt-5">🔸 Hashing Algorithms</h3>
+    <p style="font-size:18px;">
+  A <strong>hash function</strong> is a special algorithm that converts any input (text, file, password) into a unique fixed-length string called a <strong>hash value</strong> or <strong>digest</strong>. 
+  Hashing is commonly used to protect data integrity and is a core part of cryptography.
+  Unlike encryption, hashing is a <strong>one-way process</strong> — you can’t reverse it to get the original input.
+</p>
+
+
+<!-- Accordion for Detailed Explanation -->
+<div class="accordion mb-5" id="hashAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingHash">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHash" aria-expanded="false" aria-controls="collapseHash">
+        📘 Click to Learn More about Hash Functions
+      </button>
+    </h2>
+    <div id="collapseHash" class="accordion-collapse collapse" aria-labelledby="headingHash" data-bs-parent="#hashAccordion">
+      <div class="accordion-body" style="font-size:18px;">
+
+        <h4 class="text-primary">📌 Key Features of Hash Functions:</h4>
+        <ul>
+          <li><strong>One-Way:</strong> Hash values can't be reversed back to original data.</li>
+          <li><strong>Deterministic:</strong> The same input always produces the same hash.</li>
+          <li><strong>Fixed-Length:</strong> Hash outputs are always fixed in size, like 256 bits for SHA-256.</li>
+          <li><strong>Collision Resistant:</strong> It is hard to find two inputs with the same hash value.</li>
+          <li><strong>Fast Computation:</strong> Hashing is quick and ideal for verifying large data files.</li>
+        </ul>
+
+        <h4 class="text-primary">🧠 Applications of Hashing in Cybersecurity:</h4>
+        <ul>
+          <li><strong>✅ Password Storage:</strong> Websites store hashed passwords so even if leaked, they are unreadable.</li>
+          <li><strong>✅ Digital Signatures:</strong> Hashing ensures data was not changed during transmission.</li>
+          <li><strong>✅ File Verification:</strong> Tools like `sha256sum` help verify downloaded files.</li>
+          <li><strong>✅ Blockchain:</strong> Every block uses hashing to connect securely to the previous block.</li>
+        </ul>
+
+        <h4 class="text-primary">🔒 Common Hash Algorithms:</h4>
+        <ul>
+          <li><strong>MD5:</strong> Fast but outdated — vulnerable to collisions.</li>
+          <li><strong>SHA-1:</strong> Better but no longer recommended for high-security tasks.</li>
+          <li><strong>SHA-256:</strong> Part of SHA-2 family, secure and widely used today.</li>
+          <li><strong>BLAKE2:</strong> Modern and fast, often used in applications that need speed and security.</li>
+        </ul>
+
+        <h4 class="text-primary">💻 Linux Commands for Hashing:</h4>
+        <pre style="background-color: #1e1e1e; color: #ffffff; padding: 10px; border-radius: 8px; font-family: monospace;"><code>
+# 🔍 SHA-256 hash of a file
+sha256sum filename.txt
+
+# 🔍 MD5 hash of a string
+echo -n "hello" | md5sum
+
+# 🔍 SHA-1 hash of a string
+echo -n "hello" | sha1sum
+
+# 🔍 SHA-256 hash of a password
+echo -n "password123" | sha256sum</code>
+        </pre>
+
+        <h5 class="mt-4">📌 Example Use Case:</h5>
+        <p>If you download software like Kali Linux, you’ll see a “SHA256 checksum”. You can run <code>sha256sum filename.iso</code> and compare it to the website’s hash value. If it matches, the file is safe and unaltered.</p>
+
+        <p class="mt-4"><strong>🎯 Summary:</strong> Hash functions protect data from tampering. They’re simple, fast, and powerful — used in almost every area of cybersecurity from passwords to blockchain technology.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- 📸 Image for hashing (replace filename) -->
+    <img src="{{ url_for('static', filename='images/hashing_diagram.png') }}"
+     alt="Hashing Diagram"
+     class="d-block mx-auto img-fluid mb-4"
+     style="max-width: 80%; border-radius: 10px;">
+    <!-- 🔽 Accordion for Common Hash Algorithms -->
+<div class="accordion mb-5" id="hashAlgoAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingHashAlgo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHashAlgo" aria-expanded="false" aria-controls="collapseHashAlgo">
+        🔍 Click to View: MD5 vs SHA-1 vs SHA-256 Explained
+      </button>
+    </h2>
+    <div id="collapseHashAlgo" class="accordion-collapse collapse" aria-labelledby="headingHashAlgo" data-bs-parent="#hashAlgoAccordion">
+      <div class="accordion-body" style="font-size:18px;">
+
+        <h4 class="text-primary">🔐 MD5 (Message Digest 5):</h4>
+        <ul>
+          <li><strong>Output Length:</strong> 128-bit hash value (32 characters).</li>
+          <li><strong>Speed:</strong> Very fast and lightweight.</li>
+          <li><strong>Security:</strong> Weak — vulnerable to collision attacks.</li>
+          <li><strong>Use Cases:</strong> File checksums (non-critical), legacy applications.</li>
+        </ul>
+        <pre>
+# Linux Command Example
+echo -n "test" | md5sum
+        </pre>
+
+        <hr>
+
+        <h4 class="text-primary">🔐 SHA-1 (Secure Hash Algorithm 1):</h4>
+        <ul>
+          <li><strong>Output Length:</strong> 160-bit hash value (40 characters).</li>
+          <li><strong>Security:</strong> More secure than MD5, but still broken.</li>
+          <li><strong>Use Cases:</strong> Previously used in SSL, GIT, certificates — now deprecated.</li>
+        </ul>
+        <pre>
+# Linux Command Example
+echo -n "test" | sha1sum
+        </pre>
+
+        <hr>
+
+        <h4 class="text-primary">🔐 SHA-256 (Secure Hash Algorithm 256-bit):</h4>
+        <ul>
+          <li><strong>Output Length:</strong> 256-bit hash value (64 characters).</li>
+          <li><strong>Security:</strong> Very strong — currently recommended for secure hashing.</li>
+          <li><strong>Use Cases:</strong> Blockchain (Bitcoin), digital signatures, file integrity checks, password hashing.</li>
+        </ul>
+        <pre>
+# Linux Command Example
+echo -n "test" | sha256sum
+        </pre>
+
+        <p class="mt-4"><strong>✅ Summary:</strong> Use <strong>SHA-256</strong> for all security-critical hashing. Avoid MD5 and SHA-1 for anything requiring strong protection.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- 📱 Real-world use -->
+    <h3 class="mt-5">🔸 Real-World Example: WhatsApp</h3>
+    <p style="font-size:18px;">
+      WhatsApp uses <strong>End-to-End Encryption</strong> using the Signal Protocol, which is a combination of symmetric and asymmetric encryption. Messages are encrypted on your device and decrypted only on the recipient's device.
+    </p>
+
+    <!-- 💻 Practical Linux Commands -->
+    <h3 class="mt-5">🔸 Practical Linux Commands for Encryption</h3>
+    <pre style="background-color: #1e1e1e; color: #ffffff; padding: 10px; border-radius: 8px; font-family: monospace;"><code>
+# Check GPG installed
+gpg --version
+
+# Encrypt a file using AES
+openssl enc -aes-256-cbc -in secret.txt -out encrypted.enc
+
+# Decrypt the file
+openssl enc -d -aes-256-cbc -in encrypted.enc -out decrypted.txt
+    </code></pre>
+
+    <!-- 📽 YouTube Video Embed -->
+    <h3 class="mt-4">📺 YouTube Video Tutorial</h3>
+<div class="ratio ratio-16x9">
+  <iframe 
+    src="https://www.youtube.com/embed/C7vmouDOJYM" 
+    title="Cybersecurity Live Video" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+    <!-- 📄 PDF Notes -->
+    <h3 class="mt-5">🔸Study Material</h3>
+    <p style="font-size:18px;">
+      Click below to open the complete PDF guide on cryptography:
+    </p>
+    <a href="https://almuhammadi.com/sultan/books_2020/Forouzan.pdf" class="btn btn-success mb-4" target="_blank">
+      📘 Open Cryptography PDF
+    </a>
+
+    <!-- ➡ Next Navigation -->
+    <hr>
+    <div class="text-end">
+      <a href="/learn/hacking" class="btn btn-primary">Next: Ethical Hacking →</a>
+    </div>
+
+  </div> <!-- container end -->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</html>

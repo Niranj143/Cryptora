@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Networking Basics - Cryptora</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .content-img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+    .accordion-button {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .center-img {
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+      max-width: 100%;
+    }
+    pre {
+      background-color: #212529;
+      color: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .img-caption {
+      text-align: center;
+      font-style: italic;
+      color: #666;
+      margin-top: -10px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-4 mb-5">
+  <a href="/dashboard" class="btn btn-secondary mb-4">← Back to Dashboard</a>
+
+  <h1 class="text-primary" style="font-size:40px;">🌐 Networking Basics</h1>
+  <p class="lead mb-4" style="font-size:24px;"><strong>Let’s explore the world of networking, the foundation of all digital communication in cybersecurity.</strong></p>
+
+  <h3 class="mt-4">✅ What is Networking?</h3> <br>
+  <ul style="font-size:18px;">
+    <li>🧑‍🤝‍🧑 In career development, networking means creating professional relationships — where people connect to share knowledge, advice, and opportunities for growth.</li>
+    <li>💻 In technology, networking refers to linking multiple devices like computers and servers to share data and communicate efficiently.</li>
+    <li>🔐 In the context of cybersecurity, understanding how networks behave is crucial — it helps detect unusual activities, prevent attacks, and respond to security threats quickly.</li>
+  </ul>
+
+  <img src="{{ url_for('static', filename='images/networking_banner.jpg') }}" alt="Networking Banner" class="center-img" style="width:60%;border-radius:6px;">
+
+  <h3 class="mt-5">🔑 Key Concepts of Networking</h3>
+<ul style="font-size:18px; line-height:1.8;">
+  <li><strong>Nodes:</strong> Devices connected to a network, such as computers, servers, printers, or routers.</li>
+  <li><strong>Protocols:</strong> Rules that govern how data is transmitted and received (e.g., TCP/IP, HTTP, FTP).</li>
+  <li><strong>Network Topology:</strong> The physical/logical arrangement of nodes (bus, star, ring, mesh, tree).</li>
+  <li><strong>Routers:</strong> Devices that connect different networks and direct data traffic.</li>
+  <li><strong>Switches:</strong> Devices that connect multiple devices in the same network to communicate internally.</li>
+  <li><strong>Wireless Access Points (WAPs):</strong> Devices that allow wireless connections to a network.</li>
+  <li><strong>IP Addresses:</strong> Unique identifiers used to locate and communicate with devices on a network.</li>
+  <li><strong>Firewall:</strong> A security system that filters traffic to prevent unauthorized access.</li>
+  <li><strong>LAN (Local Area Network):</strong> Covers a small area like a home, school, or office.</li>
+  <li><strong>WAN (Wide Area Network):</strong> Covers a larger area like cities or countries (e.g., the Internet).</li>
+</ul>
+
+<h3 class="mt-5">✅ OSI Model (7 Layers)</h3>
+<img src="{{ url_for('static', filename='images/osi_model.png') }}" alt="OSI Model Diagram" class="center-img mb-3">
+<div class="img-caption mb-3">Click below to expand and learn about each OSI layer</div>
+
+<!-- ✅ Accordion Starts -->
+<div class="accordion mb-5" id="osiAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOsi">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsi" aria-expanded="false" aria-controls="collapseOsi">
+        📖 Click to View OSI Layer Explanation
+      </button>
+    </h2>
+    <div id="collapseOsi" class="accordion-collapse collapse" aria-labelledby="headingOsi" data-bs-parent="#osiAccordion">
+      <div class="accordion-body" style="font-size:18px;">
+       <ol>
+          <h2><li><strong>Physical Layer:</strong></li></h2>
+<p>
+The <strong>Physical Layer</strong> is the first and lowest level of the OSI model. It handles the actual movement of raw binary data (bits) through physical connections like cables or wireless signals. This layer defines the hardware setup required for sending and receiving signals across devices.
+</p>
+
+<h4>Key Functions:</h4>
+<ul>
+  <li><strong>Bit Transmission:</strong> Transfers raw 0s and 1s through the network medium.</li>
+  <li><strong>Signal Encoding:</strong> Converts bits into electrical, light, or radio signals for transmission.</li>
+  <li><strong>Physical Medium:</strong> Defines specs of cables (Ethernet, fiber) and connectors (RJ-45, etc.).</li>
+  <li><strong>Hardware Devices:</strong> Includes NICs, hubs, repeaters that handle actual data movement.</li>
+  <li><strong>Synchronization:</strong> Keeps sender and receiver in sync during communication.</li>
+  <li><strong>Media Access (optional):</strong> Controls how devices share the same medium if needed.</li>
+</ul>
+
+<h4>Examples:</h4>
+<ul>
+  <li><strong>Cables:</strong> Like Ethernet and fiber optic cables used in LANs and WANs.</li>
+  <li><strong>Wireless:</strong> Involves radio waves and frequencies used in Wi-Fi or mobile networks.</li>
+  <li><strong>Connectors:</strong> RJ-45 (Ethernet), fiber optic plugs, etc.</li>
+  <li><strong>Hubs & Repeaters:</strong> Devices that extend or amplify signals at the physical level.</li>
+</ul>
+
+<p><strong>💡 Summary:</strong> The Physical Layer forms the foundation for all network communication. Without it, no data can physically move between devices.</p>
+    <h3><li><strong>Data Link Layer (Layer 2):</strong></li></h3>
+<p>The Data Link Layer is the second layer in the OSI model. It helps devices on the same local network communicate smoothly by ensuring that data gets from one device to another without errors.</p>
+
+<h4>✨ Key Functions:</h4>
+<ul>
+  <li><strong>✔ Node-to-Node Delivery:</strong> Ensures data is passed directly between two connected devices (like PC to switch).</li>
+  <li><strong>🧩 Framing:</strong> Breaks down data into frames, which include headers (like MAC addresses) and error-checking info.</li>
+  <li><strong>🛡 Error Detection & Correction:</strong> Detects and sometimes fixes errors that happen during data transfer.</li>
+  <li><strong>🔁 Flow Control:</strong> Controls how fast data is sent, so the sender doesn’t overwhelm the receiver.</li>
+  <li><strong>⚖ Access Control:</strong> Manages how multiple devices share the same cable or medium without collisions.</li>
+</ul>
+
+<h4>📚 Sublayers:</h4>
+<ul>
+  <li><strong>LLC (Logical Link Control):</strong> Handles error checking and identifies protocols from upper layers.</li>
+  <li><strong>MAC (Media Access Control):</strong> Decides which device can use the medium and when (like Ethernet rules).</li>
+</ul>
+
+<h4>🌐 Common Protocols:</h4>
+<ul>
+  <li><strong>Ethernet:</strong> Used in LANs for wired communication.</li>
+  <li><strong>HDLC:</strong> A protocol that ensures smooth communication over point-to-point links.</li>
+  <li><strong>PPP:</strong> Connects two nodes directly, often used in dial-up connections.</li>
+  <li><strong>Frame Relay:</strong> A protocol used in wide area networks (WANs) for fast communication.</li>
+</ul>
+
+<p>🚀 <strong>Summary:</strong> The Data Link Layer creates a safe path between devices on the same network, turning raw data into manageable frames and making sure everything arrives accurately.</p>
+
+<h3><li><strong>Network Layer (Layer 3):</strong></li></h3>
+
+<p>
+The <strong>Network Layer (Layer 3)</strong> of the OSI model plays a vital role in transferring data between different networks. It manages the logical addressing system using IP addresses and ensures that data reaches the correct destination—even across the internet. This layer decides the best route for data packets and handles traffic control. Routers operate at this layer to connect different networks and direct traffic efficiently.
+</p>
+
+<h4>🌐 Key Responsibilities:</h4>
+<ul>
+  <li><strong>Routing:</strong> Determines the optimal path for data to travel through multiple routers and networks to reach the destination.</li>
+  <li><strong>Logical Addressing:</strong> Assigns IP addresses (IPv4 and IPv6) to identify the source and destination of packets.</li>
+  <li><strong>Packet Forwarding:</strong> Sends packets from one network to another based on routing decisions.</li>
+  <li><strong>Fragmentation:</strong> Breaks large packets into smaller ones if needed, especially if the receiving network has size limitations.</li>
+  <li><strong>Reassembly:</strong> Collects fragmented packets and assembles them at the destination.</li>
+</ul>
+
+<h4>🔁 Layer Interaction:</h4>
+<ul>
+  <li><strong>Receives data from:</strong> The Transport Layer (e.g., TCP, UDP)</li>
+  <li><strong>Sends data to:</strong> The Data Link Layer (for physical transmission)</li>
+</ul>
+
+<h4>🛠️ Real-Life Example:</h4>
+<p>Imagine sending a parcel from Chennai to New York. The parcel (your data) is labeled with a destination address (IP). The courier service (routers) checks the address and finds the best route. If it’s too big for one vehicle (MTU), it’s broken into smaller packets (fragmentation) and reassembled when it arrives.</p>
+
+<h4>📦 Network Layer Devices:</h4>
+<ul>
+  <li><strong>Routers:</strong> Core devices that read IP headers and forward data packets.</li>
+  <li><strong>Layer 3 Switches:</strong> Can perform routing in addition to switching.</li>
+</ul>
+
+<h4>📚 Common Protocols in Network Layer:</h4>
+<ul>
+  <li><strong>IP (Internet Protocol):</strong> Main protocol for addressing and routing data (IPv4 & IPv6).</li>
+  <li><strong>ICMP (Internet Control Message Protocol):</strong> Used for error messages, diagnostics (e.g., <code>ping</code>).</li>
+  <li><strong>IGMP (Internet Group Management Protocol):</strong> Manages multicast group communication.</li>
+  <li><strong>IPsec (Internet Protocol Security):</strong> Adds encryption and authentication to IP communication for secure data transfer.</li>
+</ul>
+
+<h4>🔐 Security in Network Layer:</h4>
+<ul>
+  <li>Filters IP packets based on addresses and ports (via firewalls).</li>
+  <li>Uses VPN protocols (like IPsec) for private and encrypted communication over public networks.</li>
+</ul>
+
+<h4>🧠 Fun Fact:</h4>
+<p>The Internet is basically a giant Network Layer system! Billions of devices find each other using IP and routers—just like a digital GPS system.</p>
+
+<h4>🎯 Summary:</h4>
+<p>The Network Layer acts like a GPS and courier system for the Internet. It finds the shortest and safest path for your data, making sure it reaches the correct device—even across the world!</p>
+
+      <h2><li><strong>Transport Layer:</strong></li></h2>
+<p>The <strong>Transport Layer</strong> (Layer 4 of the OSI Model) plays a key role in delivering data across networks from one system to another — securely, correctly, and in sequence. It acts like a reliable delivery service between apps running on different devices. This layer is responsible for setting up connections, managing how much data is sent, and checking that everything arrives intact.</p>
+
+<h3><strong>🔹 Core Functions:</strong></h3>
+<ul>
+  <li><strong>Segmentation and Reassembly:</strong> Breaks large data into small segments for sending and reassembles them at the destination.</li>
+  <li><strong>Connection Management:</strong> Establishes, maintains, and terminates reliable communication sessions (TCP).</li>
+  <li><strong>Flow Control:</strong> Prevents network overload by controlling how much data is sent at a time.</li>
+  <li><strong>Error Detection and Correction:</strong> Identifies lost or corrupted data and triggers automatic re-transmission.</li>
+  <li><strong>Reliable Delivery:</strong> Ensures data reaches in proper order without duplication using sequence numbers and acknowledgments.</li>
+  <li><strong>Multiplexing:</strong> Uses port numbers to allow multiple apps to run network tasks simultaneously on the same device.</li>
+</ul>
+
+<h3><strong>🔹 Key Protocols in Transport Layer:</strong></h3>
+<ul>
+  <li><strong>TCP (Transmission Control Protocol):</strong> 
+    <ul>
+      <li>Connection-oriented and reliable</li>
+      <li>Ensures all data reaches in correct order</li>
+      <li>Used in: Web browsing (HTTP/HTTPS), Email (SMTP), File Transfer (FTP)</li>
+    </ul>
+  </li>
+  <li><strong>UDP (User Datagram Protocol):</strong> 
+    <ul>
+      <li>Connectionless and faster than TCP</li>
+      <li>No guarantee of delivery, used where speed is more important</li>
+      <li>Used in: Video streaming, Voice calls (VoIP), Online games</li>
+    </ul>
+  </li>
+</ul>
+
+<h3><strong>🔹 Real-Time Examples:</strong></h3>
+<ul>
+  <li>📥 <strong>Downloading a file</strong> – TCP ensures each part arrives and is rebuilt correctly.</li>
+  <li>🎮 <strong>Playing an online game</strong> – UDP sends quick updates even if a few are lost.</li>
+</ul>
+
+<p>✅ <strong>Summary:</strong> The Transport Layer guarantees smooth communication between apps across networks. It provides the backbone for reliable internet functions, handling delivery, error control, and data management between sender and receiver.</p>
+<h2><li><strong>Session Layer:</strong></li></h2>
+<p>The <strong>Session Layer</strong> is the fifth layer of the OSI (Open Systems Interconnection) model. It is responsible for establishing, managing, and terminating communication sessions between two devices or applications. While layers below it focus on how data is moved, the session layer controls how long and how reliably two devices talk to each other during a session.</p>
+
+<h3><strong>🔹 Key Functions of the Session Layer:</strong></h3>
+<ul>
+  <li><strong>Session Establishment:</strong> It sets up a communication channel between sender and receiver before data is transferred. It negotiates parameters like which ports to use and session protocols.</li>
+  <li><strong>Session Maintenance:</strong> Once established, it maintains the connection — ensuring both sides stay connected without disruption. If the connection drops, it can attempt to recover and resume the session.</li>
+  <li><strong>Synchronization:</strong> The session layer places "checkpoints" or markers in the data stream so that if a session is interrupted, data transmission can resume from the last checkpoint — not from the beginning. This is especially useful in long file transfers.</li>
+  <li><strong>Session Recovery:</strong> If there is a failure or disconnection, the session layer can restart the session from the last saved point instead of starting from scratch.</li>
+  <li><strong>Session Termination:</strong> It gracefully ends the session after communication is complete, ensuring both parties agree to end the connection properly and that all data was received.</li>
+</ul>
+
+<h3><strong>🔹 Real-Life Example:</strong></h3>
+<p>Think of a WhatsApp voice call. Before you speak, a connection is established (Session Establishment). While talking, the app ensures your voice is sent and received smoothly (Maintenance). If the call drops, it shows “Reconnecting...” and continues from where it left off (Recovery). When you hang up, the session is closed properly (Termination). That’s the job of the session layer!</p>
+
+<h3><strong>🔹 Common Protocols Used:</strong></h3>
+<ul>
+  <li><strong>NetBIOS (Network Basic Input/Output System):</strong> Used in local networks for session-level services.</li>
+  <li><strong>RPC (Remote Procedure Call):</strong> Lets one program call functions or services on another computer as if it were local.</li>
+  <li><strong>SQL:</strong> In database sessions, SQL keeps connections between client and server to allow data retrieval and updates.</li>
+  <li><strong>ASP Session State / PHP Session:</strong> In web development, sessions are used to remember user actions, logins, and more during interaction with a website.</li>
+</ul>
+
+<h3><strong>🔹 Importance in Cybersecurity:</strong></h3>
+<ul>
+  <li><strong>Session Hijacking Protection:</strong> Proper session management prevents attackers from stealing active sessions.</li>
+  <li><strong>Session Timeout:</strong> Ends idle sessions automatically to reduce risk of unauthorized access.</li>
+  <li><strong>Secure Session IDs:</strong> Ensures random and unique IDs are used to avoid predictable sessions in web apps.</li>
+</ul>
+
+<h3><strong>🔹 More Use Cases:</strong></h3>
+<ul>
+  <li>Video conferencing software maintaining a stream session (Zoom, Google Meet).</li>
+  <li>Multiplayer online games keeping player data in sync.</li>
+  <li>FTP file transfer sessions with checkpoints in case of disconnection.</li>
+  <li>Banking websites that log you out after inactivity.</li>
+</ul>
+
+<p><strong>✅ Summary:</strong> The Session Layer plays a vital role in making communication between devices smooth and reliable. Without it, applications would struggle to manage long conversations, resume broken connections, or ensure secure and synchronized communication. It is especially useful in applications where continuous communication is essential — such as video calls, data transfer, and real-time collaboration.</p>
+<h2><li><strong>Presentation Layer:</strong></li></h2>
+<p>The <strong>Presentation Layer</strong> is the sixth layer of the OSI model. It works as the system’s translator, ensuring that data from one device can be properly understood by another. This layer is responsible for data formatting, encryption, decryption, and compression — making data usable, secure, and efficient across platforms.</p>
+
+<h3><strong>🔹 Key Responsibilities:</strong></h3>
+<ul>
+  <li><strong>📝 Data Formatting and Translation:</strong> Converts data into a standard format so different operating systems and applications can interpret and use the information correctly. For example, it ensures a Windows system can read data from a Linux system.</li>
+
+  <li><strong>🔐 Encryption and Decryption:</strong> This layer ensures data security by encrypting data before transmission and decrypting it upon receipt. It’s responsible for converting plain text into cipher text and vice versa.</li>
+
+  <li><strong>📦 Compression and Decompression:</strong> Reduces the size of data to make it faster to transmit over the network. On the receiving side, the data is decompressed back to its original form.</li>
+</ul>
+
+<h3><strong>🔹 Common Standards and Protocols:</strong></h3>
+<ul>
+  <li><strong>Character Encoding:</strong> ASCII, EBCDIC – used to represent text characters in binary.</li>
+  <li><strong>Image & Video Formats:</strong> JPEG, PNG, MPEG, TIFF – define how multimedia content is formatted and displayed.</li>
+  <li><strong>Security Protocols:</strong> SSL (Secure Socket Layer), TLS (Transport Layer Security) – used to provide secure data encryption and integrity.</li>
+</ul>
+
+<h3><strong>🔹 Real-World Examples:</strong></h3>
+<ul>
+  <li>When you watch a video online, the presentation layer helps format the video for your device and compress it to stream efficiently.</li>
+  <li>During a secure website transaction (https://), the presentation layer helps encrypt your personal data (like passwords).</li>
+  <li>When transferring files, the system ensures both sides can understand the format using encoding like UTF-8 or ASCII.</li>
+</ul>
+
+<h3><strong>🔹 Importance in Cybersecurity:</strong></h3>
+<ul>
+  <li>Ensures that data remains confidential through encryption.</li>
+  <li>Helps protect data from being intercepted in a readable form.</li>
+  <li>Supports secure communication between web browsers and servers using TLS/SSL.</li>
+</ul>
+
+<p><strong>✅ Summary:</strong> The Presentation Layer guarantees that data shared across networks is correctly formatted, compressed for speed, and protected through encryption. Without this layer, systems wouldn’t understand each other’s data, and secure communication would be impossible.</p>
+<h2><li><strong>Application Layer:</strong></li></h2>
+<p>The <strong>Application Layer</strong> is the seventh and final layer of the OSI model. It directly interacts with end-user software, acting as a bridge between the user and the network. This layer enables applications to communicate over the internet and other networks by providing essential services such as email, file transfer, and web browsing.</p>
+
+<h3><strong>🔹 Key Functions and Responsibilities:</strong></h3>
+<ul>
+  <li><strong>👤 User Interface:</strong> This layer provides the tools and graphical interface users interact with—like browsers, email clients, and file transfer tools.</li>
+
+  <li><strong>🔄 Protocol Support:</strong> Implements standard protocols such as HTTP, FTP, SMTP, and DNS to facilitate communication between applications.</li>
+
+  <li><strong>🔐 Data Services:</strong> Manages encryption, error control, and data formatting before it is passed down the network stack or received by the user.</li>
+
+  <li><strong>📡 Network Services:</strong> Enables vital services such as:
+    <ul>
+      <li>File transfers</li>
+      <li>Email communication</li>
+      <li>Remote system access</li>
+      <li>Domain name resolution</li>
+    </ul>
+  </li>
+</ul>
+
+<h3><strong>🔹 Common Protocols Used:</strong></h3>
+<ul>
+  <li><strong>HTTP (Hypertext Transfer Protocol):</strong> Used to browse websites.</li>
+  <li><strong>FTP (File Transfer Protocol):</strong> Transfers files between systems.</li>
+  <li><strong>SMTP (Simple Mail Transfer Protocol):</strong> Sends emails.</li>
+  <li><strong>DNS (Domain Name System):</strong> Resolves domain names to IP addresses.</li>
+  <li><strong>Telnet & SSH:</strong> Provide remote access to systems.</li>
+</ul>
+
+<h3><strong>🔹 Real-World Examples:</strong></h3>
+<ul>
+  <li>When you send an email via Gmail or Outlook, the Application Layer handles the process using SMTP.</li>
+  <li>When you open a website, your browser communicates with a server using HTTP or HTTPS.</li>
+  <li>When downloading files via FTP clients like FileZilla, this layer manages the protocol communication.</li>
+</ul>
+
+<h3><strong>🔹 Importance in Cybersecurity:</strong></h3>
+<ul>
+  <li>Application-level vulnerabilities are a major target for hackers (e.g., XSS, SQL injection).</li>
+  <li>Secure protocols like HTTPS help protect sensitive data from interception.</li>
+  <li>Authentication, data validation, and session management are handled here.</li>
+</ul>
+
+<p><strong>✅ Summary:</strong> The Application Layer ensures users and software can effectively communicate over a network. It is the most visible layer to the user and a critical point for implementing security and data handling features.</p>
+
+<p class="mt-4"><h4>🎯 <strong>OSI in Simple Words:</strong> Think of the OSI model as a 7-step delivery system—from the physical wire to the app you’re using. The Application Layer is where it all comes together for the user to see, click, and connect.</p></h4>
+  </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<body>
+<div class="container mt-5 mb-5">
+  <h1 class="text-primary mb-4">🛡 Everything You Need to Know About Networking for Cybersecurity</h1>  <div class="accordion" id="networkAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Click to View All Networking Topics
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#networkAccordion">
+        <div class="accordion-body"><!-- 🔽 Your entire networking content starts here --><h3 class="mt-5">✅ 1. Basics of Computer Networking</h3>
+<h5 class="mt-4">➤ What is a Network?</h5>
+<p>A network is a collection of computers and devices connected to share data and resources.</p>
+<h5 class="mt-4">➤ Types of Networks:</h5>
+<ul>
+  <li><strong>LAN (Local Area Network):</strong> Small area like home or school.</li>
+  <li><strong>WAN (Wide Area Network):</strong> Large areas (Internet).</li>
+  <li><strong>MAN (Metropolitan):</strong> Covers city-wide area.</li>
+  <li><strong>PAN (Personal):</strong> Small personal range (Bluetooth, Hotspot).</li>
+</ul>
+<h5 class="mt-4">➤ Network Topologies:</h5>
+<ul>
+  <li>⭐ <strong>Star:</strong> All devices connect to a central hub/switch.</li>
+  <li>🚌 <strong>Bus:</strong> Devices connected in a line to a single cable.</li>
+  <li>🔁 <strong>Ring:</strong> Devices form a circle.</li>
+  <li>🔗 <strong>Mesh:</strong> Every device connects to every other device.</li>
+</ul>
+<h5 class="mt-4">➤ OSI Model (7 Layers):</h5>
+<ol>
+  <li>Physical – Hardware (cables, switches)</li>
+  <li>Data Link – MAC addresses</li>
+  <li>Network – IP addresses</li>
+  <li>Transport – TCP/UDP</li>
+  <li>Session – Connection management</li>
+  <li>Presentation – Data formatting, encryption</li>
+  <li>Application – Protocols like HTTP, FTP</li>
+</ol>
+<h5 class="mt-4">➤ TCP/IP Model:</h5>
+<ol>
+  <li>Network Interface</li>
+  <li>Internet</li>
+  <li>Transport</li>
+  <li>Application</li>
+</ol>
+<h5 class="mt-4">➤ IP Addressing:</h5>
+<ul>
+  <li>IPv4: <code>192.168.0.1</code></li>
+  <li>IPv6: <code>2001:0db8:85a3::8a2e:0370:7334</code></li>
+</ul>
+<h5 class="mt-4">➤ Subnetting Example:</h5>
+<ul>
+  <li>IP: <code>192.168.1.10/24</code></li>
+  <li>Subnet Mask: <code>255.255.255.0</code></li>
+  <li>Host range: <code>192.168.1.1 – 192.168.1.254</code></li>
+</ul>
+<h5 class="mt-4">➤ MAC Address:</h5>
+<p>A physical address like <code>00:1A:2B:3C:4D:5E</code></p>
+<h5 class="mt-4">➤ Ports and Protocols:</h5>
+<ul>
+  <li>HTTP – 80</li>
+  <li>HTTPS – 443</li>
+  <li>DNS – 53</li>
+  <li>SSH – 22</li>
+</ul>
+<h5 class="mt-4">➤ Linux Commands:</h5>
+<pre>
+ifconfig     # Shows IP and MAC address
+ip a         # Modern command to show interfaces
+</pre>
+<hr class="my-5">
+<h3>✅ 2. Network Devices</h3>
+<ul>
+  <li><strong>Router:</strong> Connects different networks.</li>
+  <li><strong>Switch:</strong> Connects devices in the same network.</li>
+  <li><strong>Hub:</strong> Broadcasts to all devices.</li>
+  <li><strong>Bridge:</strong> Connects two LANs.</li>
+  <li><strong>Gateway:</strong> Connects different protocols.</li>
+  <li><strong>Firewall:</strong> Filters traffic.</li>
+  <li><strong>Modem:</strong> Internet connection.</li>
+  <li><strong>Access Point:</strong> Provides Wi-Fi signal.</li>
+</ul>
+<hr class="my-5">
+<h3>✅ 3. Network Protocols and Services</h3>
+<h5>➤ TCP vs UDP:</h5>
+<ul>
+  <li><strong>TCP:</strong> Reliable, slower, ordered (e.g., HTTP, FTP)</li>
+  <li><strong>UDP:</strong> Fast, no guarantee, good for video/audio</li>
+</ul>
+<h5 class="mt-3">➤ Important Protocols:</h5>
+<ul>
+  <li><strong>ARP:</strong> Converts IP to MAC</li>
+  <li><strong>ICMP:</strong> Used in ping & traceroute</li>
+  <li><strong>DNS:</strong> Resolves domain to IP</li>
+  <li><strong>DHCP:</strong> Assigns IP addresses automatically</li>
+  <li><strong>NAT:</strong> Translates private to public IP</li>
+</ul>
+<h5 class="mt-3">➤ Linux Commands:</h5>
+<pre>
+ping google.com
+traceroute google.com
+arp -a
+</pre>
+<hr class="my-5">
+<h3>✅ 4. Network Security Fundamentals</h3>
+<h5>➤ CIA Triad:</h5>
+<ul>
+  <li><strong>Confidentiality:</strong> No unauthorized access</li>
+  <li><strong>Integrity:</strong> Data is accurate and untampered</li>
+  <li><strong>Availability:</strong> Services accessible</li>
+</ul>
+<h5 class="mt-3">➤ Common Attacks:</h5>
+<ul>
+  <li>DoS/DDoS: Overload a system</li>
+  <li>MITM: Hacker intercepts communication</li>
+  <li>ARP Spoofing: Fakes MAC address</li>
+  <li>DNS Poisoning: Wrong IP for a domain</li>
+</ul>
+<h5 class="mt-3">➤ Linux Security Tools:</h5>
+<pre>
+netstat -tuln
+ss -tuln
+iptables -L
+ufw status
+</pre>
+<hr class="my-5">
+<h3>✅ 5. Tools for Network Security</h3>
+<h5>➤ Tools:</h5>
+<ul>
+  <li>Wireshark: Packet capture</li>
+  <li>Nmap: Port scanning</li>
+  <li>Netstat: Network connection viewer</li>
+</ul>
+<h5 class="mt-3">➤ Commands:</h5>
+<pre>
+nmap 192.168.1.1
+sudo wireshark
+netstat -an
+</pre>
+<hr class="my-5">
+<h3>✅ 6. Wireless Network Security</h3>
+<h5>➤ WiFi Encryption Standards:</h5>
+<ul>
+  <li>WEP: Weak</li>
+  <li>WPA: Better</li>
+  <li>WPA2: Strong</li>
+  <li>WPA3: Latest</li>
+</ul>
+<h5 class="mt-3">➤ Attacks:</h5>
+<ul>
+  <li>Evil Twin: Fake WiFi</li>
+  <li>Deauthentication: Forces disconnection</li>
+</ul>
+<h5 class="mt-3">➤ Linux Tools:</h5>
+<p>Use Kali Linux tools:</p>
+<pre>
+airmon-ng
+airodump-ng
+aireplay-ng
+</pre>
+<hr class="my-5">
+<h3>✅ 7. Access Control and Network Policies</h3>
+<ul>
+  <li><strong>ACLs:</strong> Rules to allow/block traffic</li>
+  <li><strong>VLANs:</strong> Separate networks on same switch</li>
+  <li><strong>RBAC:</strong> Role-based access control</li>
+</ul>
+<hr class="my-5">
+<h3>✅ 8. Real-Time Concepts for Cybersecurity</h3>
+<h5>➤ How to Secure Home/Office Network:</h5>
+<ul>
+  <li>Change default credentials</li>
+  <li>Enable WPA2/WPA3</li>
+  <li>Use firewalls</li>
+  <li>Disable WPS</li>
+</ul>
+<h5 class="mt-3">➤ Linux Firewall Setup:</h5>
+<pre>
+sudo ufw enable
+sudo ufw allow 22/tcp    # SSH
+sudo ufw deny 23         # Block Telnet
+</pre>
+<h5 class="mt-3">➤ Common Ports:</h5>
+<table class="table table-bordered table-striped">
+  <thead><tr><th>Port</th><th>Service</th></tr></thead>
+  <tbody>
+    <tr><td>21</td><td>FTP</td></tr>
+    <tr><td>22</td><td>SSH</td></tr>
+    <tr><td>23</td><td>Telnet</td></tr>
+    <tr><td>25</td><td>SMTP</td></tr>
+    <tr><td>53</td><td>DNS</td></tr>
+    <tr><td>80</td><td>HTTP</td></tr>
+    <tr><td>443</td><td>HTTPS</td></tr>
+  </tbody>
+</table><!-- 🔼 Content end --></div>
+  </div>
+</div>
+
+  </div>
+</div>
+<h2 class="mt-5 text-primary">✅ How the Internet Works</h2>
+
+<p style="font-size:18px;">
+  The internet is like a giant web that connects millions of computers and devices all over the world. It helps us send messages, browse websites, watch videos, and more — all in just a few seconds! But how does it really work behind the scenes? Let’s break it down in a simple way.
+</p>
+
+<h4 class="mt-4">🌐 What Is the Internet?</h4>
+<p style="font-size:17px;">
+  The internet is a global network of computers and servers that share and transfer data using common rules called <strong>protocols</strong>. It’s like a postal system for digital information.
+</p>
+
+<h4 class="mt-4">📦 Packet Switching – Like Sending a Letter in Pieces</h4>
+<p style="font-size:17px;">
+  When you send a message (like opening a website), the information is broken into small parts called <strong>packets</strong>. Each packet travels separately across the internet and is reassembled when it reaches its destination — like sending pages of a letter in different envelopes.
+</p>
+
+<h4 class="mt-4">🔁 Role of Routers and Switches</h4>
+<p style="font-size:17px;">
+  <strong>Routers</strong> are like traffic police. They look at each packet and decide the best path to send it. <strong>Switches</strong> help connect multiple devices inside the same building or office so they can communicate easily.
+</p>
+
+<h4 class="mt-4">⚙️ Internet Protocols (TCP/IP)</h4>
+<p style="font-size:17px;">
+  Protocols are the rules for how data moves on the internet. The two main ones are:
+</p>
+<ul style="font-size:17px;">
+  <li><strong>IP (Internet Protocol):</strong> It gives every device a unique address (like your home address). It ensures packets reach the correct destination.</li>
+  <li><strong>TCP (Transmission Control Protocol):</strong> It checks if all packets arrive safely and in order. If anything is missing, it asks for it again.</li>
+</ul>
+
+<h4 class="mt-4">🌐 Network of Networks</h4>
+<p style="font-size:17px;">
+  The internet is not just one big network — it’s made up of thousands of smaller networks like schools, companies, governments, and homes all connected together. This is why we call it a “network of networks.”
+</p>
+
+<h4 class="mt-4">📊 Simple Example:</h4>
+<p style="font-size:17px;">
+  Let’s say you search for “What is cybersecurity?” on Google:
+</p>
+<ol style="font-size:17px;">
+  <li>Your phone sends the request in packets to your router.</li>
+  <li>Your router sends those packets to Google’s server using the internet.</li>
+  <li>Google replies with search results, again in packets.</li>
+  <li>Your device reassembles the packets into a readable webpage.</li>
+</ol>
+
+<h4 class="mt-4">🔑 Key Points to Remember</h4>
+<ul style="font-size:17px;">
+  <li>Data is always broken into small packets before transmission.</li>
+  <li>Each device has an IP address (like a digital house number).</li>
+  <li>Routers and switches help guide the data to its correct location.</li>
+  <li>Protocols like TCP/IP make sure everything is delivered safely.</li>
+</ul>
+
+<p style="font-size:17px;">
+  ✅ In short, the internet helps your computer talk to other computers anywhere in the world, using smart pathways and common digital languages.
+</p>
+
+  <h3 class="mt-5 text-primary">🔥 Firewall & Network Security Devices</h3>
+<p style="font-size:18px">
+  A <strong>firewall</strong> is a security system that acts like a barrier between your private network and the outside world (internet). It filters incoming and outgoing traffic and helps block harmful access.
+</p>
+<p style="font-size:18px;">Firewalls act as gatekeepers that monitor and control incoming and outgoing traffic based on security rules.</p>
+
+<!-- 🔰 Image -->
+<img src="{{ url_for('static', filename='images/firewall.png') }}" alt="Firewall Illustration" class="center-img my-3" style="max-width: 90%; border-radius: 10px;">
+
+<h4>🔐 Key Features of a Firewall:</h4>
+<ul style="font-size:18px">
+  <li><strong>Traffic Filtering:</strong> Allows or blocks data packets based on rules.</li>
+  <li><strong>Access Control:</strong> Prevents unauthorized users from entering the network.</li>
+  <li><strong>Monitoring:</strong> Tracks suspicious activity in real-time.</li>
+  <li><strong>Alerts:</strong> Sends alerts when threats are detected.</li>
+</ul>
+
+<h4>🛡️ Types of Firewalls:</h4>
+<ul style="font-size:18px">
+  <li><strong>Packet-Filtering Firewall:</strong> Examines each packet and decides whether to forward it.</li>
+  <li><strong>Stateful Firewall:</strong> Tracks active connections and allows only expected traffic.</li>
+  <li><strong>Proxy Firewall:</strong> Acts as a gateway between users and the internet.</li>
+  <li><strong>Next-Gen Firewall (NGFW):</strong> Advanced firewalls with antivirus, intrusion detection & more.</li>
+</ul>
+
+<h4>🔌 Real-World Example:</h4>
+<p style="font-size:18px">
+  Imagine your home Wi-Fi router has a firewall. When a hacker tries to enter your system, the firewall blocks that request if it’s suspicious.
+</p>
+
+<!-- ✅ Practical Linux Command -->
+<h4 class="mt-4">💻 Linux Command to View Firewall Status:</h4>
+<pre><code style="font-size:16px">
+sudo ufw status
+</code></pre>
+
+  <h3 class="mt-5">✅ YouTube Video Tutorial</h3>
+  <div class="ratio ratio-16x9 mb-4">
+    <iframe src="https://www.youtube.com/embed/ykrE849Yq68" title="Cybersecurity Networking Video" allowfullscreen></iframe>
+  </div>
+
+  <h3 class="mt-5">✅ Study Notes (External PDF Link)</h3>
+  <p>Get the full Beej’s Guide to Networking — an excellent beginner-friendly book:</p>
+  <a href="https://beej.us/guide/bgnet0/pdf/bgnet0_a4_c_2.pdf" class="btn btn-success mb-4" target="_blank">
+    📘 Open and Study Networking PDF
+  </a>
+
+  <hr>
+  <div class="text-end">
+    <a href="/learn/encryption" class="btn btn-primary">Next: Encryption & Cryptography →</a>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

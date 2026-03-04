@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Result</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #020617;
+            padding: 40px;
+            border-radius: 15px;
+            width: 420px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+
+        h1 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .score {
+            font-size: 22px;
+            margin: 15px 0;
+        }
+
+        .pass {
+            color: #22c55e;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .fail {
+            color: #ef4444;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .msg {
+            margin: 15px 0 25px;
+            font-size: 16px;
+            color: #cbd5f5;
+        }
+
+        a {
+            text-decoration: none;
+            background: #38bdf8;
+            color: #020617;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background: #0ea5e9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>{{ topic|capitalize }} Quiz Result</h1>
+
+    <div class="score">
+        Score: {{ score }} / {{ total }}
+    </div>
+
+    {% if result == "PASS" %}
+        <div class="pass">PASS 🎉</div>
+        <div class="msg">Excellent! You understand this topic well.</div>
+    {% else %}
+        <div class="fail">FAIL ❌</div>
+        <div class="msg">You should revise this topic and try again.</div>
+    {% endif %}
+    <br>
+    <a href="/assessment/progress">
+    <button>📊 View Progress Dashboard</button>
+    </a>
+    <br>
+    <br>
+    <br>
+    <a href="/assessment/levels/{{ topic }}">
+    <button>🔁 Try Another Level</button>
+    </a>
+<br>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CyberHub Learning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            display: flex;
+        }
+
+        /* LEFT SIDEBAR */
+        .sidebar {
+            width: 220px;
+            background: #1e293b;
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+        }
+
+        .sidebar a:hover {
+            background: #334155;
+            color: white;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* CARD GRID */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 14px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            background: #2563eb;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>CyberHub</h2>
+        <a href="/cyberhub">🏠 Home</a>
+        <a href="/cyberhub/beginner">Beginner</a>
+        <a href="/cyberhub/intermediate">Intermediate</a>
+        <a href="/cyberhub/advanced">Advanced</a>
+        <a href="/cyberhub/tools">Tools</a>
+        <a href="/cyberhub/labs">Labs</a>
+        <a href="/cyberhub/certs">Certificates</a>
+        <a href="/dashboard">⬅ Dashboard</a>
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

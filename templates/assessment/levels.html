@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Level</title>
+    <style>
+        body{
+    background:#020617;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+.levels-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    max-width:900px;
+    margin:auto;
+    margin-top:40px;
+}
+
+.level-card{
+    background:#0f172a;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,255,255,0.2);
+}
+.level-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px cyan;
+    border: 2px solid cyan;
+    transition: 0.3s;
+}
+
+.start-btn{
+    padding:10px 18px;
+    background:cyan;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.start-btn:hover{
+    background:white;
+    color:black;
+    transform:scale(1.05);
+    box-shadow:0 0 15px cyan;
+}
+.start-btn:active{
+    transform:scale(0.95);
+}
+    </style>
+</head>
+<body>
+
+<h1 class="title">{{ topic }} Assessment</h1>
+<h2 class="subtitle">Select Level</h2>
+
+<div class="levels-container">
+
+    <div class="level-card">
+        <h3>🟢 Beginner</h3>
+        <a href="{{ url_for('assessment.quiz', topic=topic, level='Beginner') }}">
+            <button class="start-btn">Start Assessment</button>
+        </a>
+    </div>
+
+    <div class="level-card">
+        <h3>🟡 Intermediate</h3>
+        <a href="{{ url_for('assessment.quiz', topic=topic, level='Intermediate') }}">
+            <button class="start-btn">Start Assessment</button>
+        </a>
+    </div>
+
+    <div class="level-card">
+        <h3>🔴 Advanced</h3>
+        <a href="{{ url_for('assessment.quiz', topic=topic, level='Advanced') }}">
+            <button class="start-btn">Start Assessment</button>
+        </a>
+    </div>
+
+</div>
+
+<br>
+
+<a href="{{ url_for('assessment.home') }}" class="back-link"> ⬅ Back to Topics</a>
+</body>
+</html>

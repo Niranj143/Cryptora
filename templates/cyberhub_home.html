@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CyberHub</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4ff, #e6f0ff);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Title */
+        h1 {
+            margin-top: 100px;
+            font-size: 42px;
+            color: #1e293b;
+            animation: fadeInDown 1s ease;
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #475569;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Buttons Container */
+        .level-container {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .level-btn {
+            padding: 15px 30px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .level-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            background: #1d4ed8;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity:0; transform: translateY(-40px); }
+            to { opacity:1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity:0; }
+            to { opacity:1; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="/dashboard" class="back-btn">⬅ Back to Dashboard</a>
+
+<h1>🚀 Welcome to CyberHub</h1>
+<p class="subtitle">Select your learning level and grow up</p>
+
+<div class="level-container">
+    <a href="/cyberhub/beginner" class="level-btn">Beginner</a>
+    <a href="/cyberhub/intermediate" class="level-btn">Intermediate</a>
+    <a href="/cyberhub/advanced" class="level-btn">Advanced</a>
+    <a href="/cyberhub/tools" class="level-btn">Tools</a>
+    <a href="/cyberhub/labs" class="level-btn">Labs</a>
+    <a href="/cyberhub/certificates" class="level-btn">Certificates</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cryptora</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="hero-container">
+    <div class="content">
+      <h1 class="animated-title"> <span>👋 Welcome to Cryptora</span></h1>
+      <p class="tagline">Your Journey to Master Cyber Security & Ethical Hacking Begins Here!</p>
+      <div class="button-group">
+        <a href="{{ url_for('login') }}" class="btn">Login</a>
+        <a href="{{ url_for('register') }}" class="btn">Register</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

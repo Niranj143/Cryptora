@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Cybersecurity Tools Knowledge Base 🛠️</h2>
+<p>Understand tools, their purpose, and basic commands.</p>
+
+<div class="card-container">
+
+    <div class="card">
+        <h3>🔎 Nmap</h3>
+        <p><strong>Purpose:</strong> Network scanning and port discovery.</p>
+        <p><strong>Basic Commands:</strong></p>
+        <ul>
+            <li>nmap 192.168.1.1</li>
+            <li>nmap -sV target.com</li>
+            <li>nmap -A target.com</li>
+        </ul>
+        <a href="https://nmap.org/download.html" target="_blank">Download Tool</a>
+    </div>
+
+    <div class="card">
+        <h3>🕵️ Wireshark</h3>
+        <p><strong>Purpose:</strong> Capture and analyze network packets.</p>
+        <p><strong>Filters:</strong></p>
+        <ul>
+            <li>http</li>
+            <li>ip.addr == 192.168.1.1</li>
+            <li>tcp.port == 80</li>
+        </ul>
+        <a href="https://www.wireshark.org/download.html" target="_blank">Download Tool</a>
+    </div>
+
+    <div class="card">
+        <h3>🛡 Burp Suite</h3>
+        <p><strong>Purpose:</strong> Web vulnerability testing.</p>
+        <p><strong>Usage:</strong> Intercept HTTP requests and test web apps.</p>
+        <ul>
+            <li>Proxy → Intercept ON</li>
+            <li>Send to Repeater</li>
+            <li>Scan vulnerabilities</li>
+        </ul>
+        <a href="https://portswigger.net/burp" target="_blank">Download Tool</a>
+    </div>
+
+    <div class="card">
+        <h3>💣 Metasploit</h3>
+        <p><strong>Purpose:</strong> Exploitation framework for security testing.</p>
+        <p><strong>Basic Commands:</strong></p>
+        <ul>
+            <li>msfconsole</li>
+            <li>search exploit</li>
+            <li>use exploit_name</li>
+        </ul>
+        <a href="https://www.metasploit.com/download" target="_blank">Download Tool</a>
+    </div>
+
+</div>
+{% endblock %}

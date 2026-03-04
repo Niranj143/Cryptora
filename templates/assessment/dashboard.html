@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progress Dashboard</title>
+    <style>
+       body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+}
+
+       table{
+    width:100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border-radius:10px;
+    overflow:hidden;
+    color:white;
+}
+
+        th, td{
+            padding:12px;
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#2563eb;
+            color:white;
+        }
+
+        h1{
+            margin-top:30px;
+        }
+        .weaker {
+    color: red;
+    font-weight: bold;
+}
+
+.weak {
+    color: orange;
+    font-weight: bold;
+}
+
+.strong {
+    color: green;
+    font-weight: bold;
+}
+
+.stronger {
+    color: darkgreen;
+    font-weight: bold;
+}
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    font-family: Arial, sans-serif;
+}
+.status{
+    padding:6px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    color:white;
+}
+
+.status.weaker{ background:#e74c3c; }
+.status.weak{ background:#f39c12; }
+.status.strong{ background:#3498db; }
+.status.stronger{ background:#2ecc71; }
+
+.dashboard-card{
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border-radius:15px;
+    padding:20px;
+}
+.progress-bar{
+    width: 100%;
+    background:#e5e7eb;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    background:linear-gradient(90deg,#00c6ff,#0072ff);
+    color:white;
+    text-align:center;
+    font-size:12px;
+    font-weight:bold;
+    padding:4px 0;
+    transition:0.4s;
+}
+h1{
+    text-align:center;
+    color:white;
+}
+    </style>
+</head>
+
+<body>
+
+<h1>📊 Learning Progress Dashboard</h1>
+<div class="dashboard-card">
+<table>
+<tr>
+    <th>Topic</th>
+    <th>Score</th>
+    <th>Total</th>
+    <th>Perentage</th>
+    <th>Status</th>
+</tr>
+
+{% for r in results %}
+<tr>
+    <td>{{ r[0] }}</td>
+    <td>{{ r[1] }}</td>
+    <td>{{ r[2] }}</td>
+
+    <!-- Percentage -->
+    <td>
+    <div class="progress-bar">
+        <div class="progress-fill"
+             style="width: {{ r[3] }}%;">
+            {{ "%.2f"|format(r[3]) }}%
+        </div>
+    </div>
+</td>
+
+    <!-- Strength Level -->
+    <td> <span class="status {{ r[4].lower() }}">
+        {{ r[4] }}
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+<a href="/dashboard">⬅ Go Back Home</a>
+</body>
+</html>
