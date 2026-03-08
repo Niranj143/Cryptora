@@ -151,6 +151,13 @@ def success():
         return redirect(url_for('login'))
     username = session['username']
     return render_template('success.html', username=username)
+@app.route('/admin')
+def admin():
+    import json
+    with open("users.json", "r") as f:
+        users = json.load(f)
 
+    total_users = len(users)
+    return f"Total Registered Users: {total_users}"
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT",5000)))
